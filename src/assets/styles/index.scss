@@ -1,1 +1,5 @@
-@import url('@/assets/styles/common/normalize.scss')
+// common
+@import '@@/styles/common/fonts.scss';
+@import '@@/styles/common/variables.scss';
+@import '@@/styles/common/mixins.scss';
+@import '@@/styles/common/normalize.scss';
