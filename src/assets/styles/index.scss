@@ -1,5 +1,10 @@
 // common
+@import '@@/styles/common/normalize.scss';
 @import '@@/styles/common/fonts.scss';
 @import '@@/styles/common/variables.scss';
 @import '@@/styles/common/mixins.scss';
-@import '@@/styles/common/normalize.scss';
+@import '@@/styles/common/default.scss';
+
+// components
+@import '@@/styles/components/app.scss';
+@import '@@/styles/components/the-nav.scss';

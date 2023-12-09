@@ -1,5 +1,7 @@
 <template>
-  <component :is="layout + '-layout'" v-if="layout"></component>
+  <div class="wrapper">
+    <component :is="layout + '-layout'" v-if="layout"></component>
+  </div>
 </template>
 
 <script>
@@ -16,7 +18,7 @@ export default {
     return {
       layout: computed(() => route.meta.layout),
     }
-  }
+  },
 }
 </script>
 

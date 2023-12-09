@@ -1,0 +1,33 @@
+@mixin flex($direction: row, $justify: space-between, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin icon($size: 22px, $color: $black, $second-color: $gray) {
+  font-size: $size;
+  color: $color;
+  padding: 0 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $second-color;
+  }
+}
+
+@mixin link($size: 28px, $family: $calama, $color: $black, $second-color: $gray, $weight: 500, $spacing: +2px) {
+  font-size: $size;
+  font-family: $family;
+  color: $color;
+  font-weight: $weight;
+  letter-spacing: $spacing;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $second-color;
+  }
+}

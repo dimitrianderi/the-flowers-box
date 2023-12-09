@@ -1,10 +1,13 @@
 <template>
-  <h1 class="main">Главный шаблон</h1>
+  <the-nav></the-nav>
   <router-view></router-view>
 </template>
 
 <script>
-export default {}
+import TheNav from '../components/TheNav.vue'
+export default {
+  components: { TheNav },
+}
 </script>
 
 <style></style>
