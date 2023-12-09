@@ -4,7 +4,10 @@ const routes = [
     {
         path: '/',
         name: 'Main',
-        component: () => import('@/views/Main.vue')
+        component: () => import('@/views/Main.vue'),
+        meta: {
+            layout: 'main'
+        }
     },
 ]
 
