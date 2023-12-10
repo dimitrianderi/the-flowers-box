@@ -1,5 +1,17 @@
+body {
+  background-color: $pink;
+  box-sizing: border-box;
+}
+
 li {
   list-style-type: none;
+}
+
+.container {
+  @include flex;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .icon {
