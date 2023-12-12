@@ -8,7 +8,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    position: relative
+    position: relative;
   }
 
   &-icon {
@@ -32,6 +32,32 @@
       left: 20px;
     }
   }
+
+  &__marks {
+    @include flex;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 7px;
+    z-index: 1;
+
+    &-mark {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: transparent;
+      border: 1px solid $white;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 5px transparent;
+      cursor: pointer;
+
+      &.active {
+        background-color: $white;
+        box-shadow: 0 0 5px $white;
+      }
+    }
+  }
 }
 
 .slide {
@@ -39,7 +65,7 @@
   height: 100%;
   overflow: hidden;
   position: absolute;
-  
+
   &__img {
     width: 100%;
     height: 100%;
@@ -54,7 +80,7 @@
     left: 50%;
     opacity: 0;
     transform: translate(-50%);
-    animation: slideAndFade .5s ease-out forwards;
+    animation: slideAndFade 0.5s ease-out forwards;
 
     &-title {
       @include text($white, 100px, $fashion, 700, 100px);
@@ -75,14 +101,18 @@
   0% {
     opacity: 0;
     bottom: -50%;
+    z-index: -1;
   }
   30% {
-    opacity: 0;
     bottom: 0;
+  }
+  80% {
+    z-index: -1;
   }
   100% {
     opacity: 1;
     bottom: 20%;
+    z-index: 0;
   }
 }
 

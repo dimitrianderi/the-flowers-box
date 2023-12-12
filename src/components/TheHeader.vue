@@ -35,6 +35,17 @@
       :icon="'fa-solid fa-chevron-' + icon"
       @click="changeSlide(icon)"
     />
+    <div class="header__marks">
+      <span
+        class="header__marks-mark"
+        v-for="mark in slides.length"
+        :key="mark"
+        :class="{ active: currentSlide === mark - 1 }"
+        @click="currentSlide = mark - 1"
+        @mouseleave="playInterval"
+        @mouseover="stopInterval"
+      ></span>
+    </div>
   </header>
 </template>
 
