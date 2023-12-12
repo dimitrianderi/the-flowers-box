@@ -1,5 +1,4 @@
-body {
-  background-color: $pink;
+* {
   box-sizing: border-box;
 }
 
@@ -17,3 +16,4 @@ li {
 .icon {
   @include icon;
 }
+

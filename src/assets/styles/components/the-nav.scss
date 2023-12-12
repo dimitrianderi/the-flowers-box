@@ -1,7 +1,12 @@
 .menu {
   @include flex;
+  position: fixed;
+  height: 66px;
+  top: 0;
+  left: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, .9);
+  background-color: $white;
+  z-index: 2;
 
   &__logo {
     height: 55px;

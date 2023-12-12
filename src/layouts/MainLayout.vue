@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import TheNav from '../components/TheNav.vue'
+import TheNav from '@/components/TheNav.vue'
 export default {
   components: { TheNav },
 }
