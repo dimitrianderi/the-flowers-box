@@ -27,6 +27,19 @@
     @include flex;
     width: 50%;
   }
+
+  &__icons {
+    @include flex(_, flex-end);
+    width: 20%;
+
+    &-icon {
+      @include icon($black, $white);
+
+      &.scrolled {
+        @include icon;
+      }
+    }
+  }
 }
 
 .nav {
@@ -36,17 +49,17 @@
   &__item {
     padding: 0 25px;
     border-right: 2px solid $black;
+
     &:last-child {
       border-right: none;
     }
   }
 
   &__link {
-    @include link;
-  }
-}
+    @include link($black, $white);
 
-.icons {
-    @include flex(_, flex-end);
-    width: 20%;
+    &.scrolled {
+      @include link;
+    }
+  }
 }

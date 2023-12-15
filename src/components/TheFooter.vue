@@ -16,9 +16,6 @@
             <span class="info__block-text">Jordan</span>
             <span class="info__block-text">Amman, 11942</span>
             <span class="info__block-text">Al-Mwadah St, 7th Cir.</span>
-            <span class="info__block-text"><a class="info__block-link" href="tel:+962796630848">phone: +962 7 9663 0848</a></span>
-            <span class="info__block-text"><a class="info__block-link" href="mailto:flowersbox7@hotmail.com">flowersbox7@hotmail.com</a></span>
-            
           </div>
         </div>
         <div class="info">
@@ -29,29 +26,41 @@
               target="_blank"
               href="https://www.instagram.com/explore/tags/flowers_box/"
             >
-              <font-awesome-icon class="icon" icon="fa-brands fa-instagram"
+              <font-awesome-icon class="info__block-icon" icon="fa-brands fa-instagram"
             /></a>
             <a
               class="info__block-text"
               target="_blank"
-              href="https://vk.com/flowerbox13"
+              href="https://twitter.com/ammanflowers"
             >
-              <font-awesome-icon class="icon" icon="fa-brands fa-vk"
+              <font-awesome-icon class="info__block-icon" icon="fa-brands fa-x-twitter"
             /></a>
             <a
               class="info__block-text"
               target="_blank"
               href="https://www.facebook.com/flowersboxamman/"
             >
-              <font-awesome-icon class="icon" icon="fa-brands fa-facebook"
+              <font-awesome-icon class="info__block-icon" icon="fa-brands fa-facebook"
             /></a>
           </div>
+          <span class="info__block-text"
+            ><a class="info__block-link" href="tel:+962796630848"
+              >phone: +962 7 9663 0848</a
+            ></span
+          >
+          <span class="info__block-text"
+            ><a class="info__block-link" href="mailto:flowersbox7@hotmail.com"
+              >flowersbox7@hotmail.com</a
+            ></span
+          >
         </div>
       </div>
     </div>
   </footer>
   <div class="footer__copyright">
-    <span class="footer__copyright-title">Copyright © 2023 The Flowers Box</span>
+    <span class="footer__copyright-title"
+      >Copyright © 2023 The Flowers Box</span
+    >
   </div>
 </template>
 

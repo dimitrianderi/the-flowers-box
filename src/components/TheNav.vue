@@ -6,19 +6,19 @@
       </div>
       <nav class="menu__navbar">
         <ul class="nav">
-          <li class="nav__item"><a href="#" class="nav__link">Link1</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Ссылка2</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Ссылка3</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Ссылка4</a></li>
+          <li class="nav__item"><a href="#" :class="['nav__link', {'scrolled': isScrolled}]">Link1</a></li>
+          <li class="nav__item"><a href="#" :class="['nav__link', {'scrolled': isScrolled}]">Ссылка2</a></li>
+          <li class="nav__item"><a href="#" :class="['nav__link', {'scrolled': isScrolled}]">Ссылка3</a></li>
+          <li class="nav__item"><a href="#" :class="['nav__link', {'scrolled': isScrolled}]">Ссылка4</a></li>
         </ul>
-        <div class="icons">
+        <div class="menu__icons">
           <font-awesome-icon
-            class="icon"
+            :class="['menu__icons-icon', {'scrolled': isScrolled}]"
             icon="fa-solid fa-user"
             title="log in"
           />
           <font-awesome-icon
-            class="icon"
+            :class="['menu__icons-icon', {'scrolled': isScrolled}]"
             icon="fa-solid fa-address-card"
             title="sign up"
           />

@@ -13,7 +13,7 @@
   }
 
   &-icon {
-    @include icon(50px, $white, $white);
+    @include icon($white, $white, 50px);
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
