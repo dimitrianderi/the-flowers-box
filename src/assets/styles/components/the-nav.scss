@@ -5,8 +5,13 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: $white;
-  z-index: 2;
+  background-color: transparent;
+  z-index: 3;
+  transition: all 1s ease;
+
+  &.scrolled {
+    background-color: $white;
+  }
 
   &__logo {
     height: 55px;

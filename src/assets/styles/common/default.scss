@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 li {
@@ -16,4 +17,3 @@ li {
 .icon {
   @include icon;
 }
-

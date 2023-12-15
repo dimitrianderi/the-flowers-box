@@ -1,5 +1,5 @@
 <template>
-  <div class="menu">
+  <div class="menu" :class="{'scrolled': isScrolled}">
     <div class="container">
       <div class="menu__logo">
         <img class="menu__logo-img" src="@@/img/logo.png" alt="logo" />
@@ -29,7 +29,22 @@
 </template>
 
 <script>
-export default {}
+import { onMounted, ref } from 'vue'
+export default {
+  setup() {
+    const isScrolled = ref(false)
+
+    const handleScroll = () => {
+      isScrolled.value = window.scrollY >= 100
+    }
+
+    onMounted(() => window.addEventListener('scroll', handleScroll))
+
+    return {
+      isScrolled,
+    }
+  },
+}
 </script>
 
 <style></style>

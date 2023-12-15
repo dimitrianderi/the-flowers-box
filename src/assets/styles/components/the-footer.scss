@@ -1,0 +1,77 @@
+.footer {
+    @include flex(column, justify-content, flex-start);
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: $pink;
+    background-image: url('@@/img/footer.jpg');
+    object-fit: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 50px 0;
+
+
+    &__container {
+        @include flex(row, justify-content, flex-start);
+        height: 100%;
+        gap: 50px;
+    }
+
+    &__map {
+        width: 50%;
+        flex-shrink: 0;
+        height: 100v;
+        align-self: stretch;
+    }
+
+    &__info {
+        @include flex(_, _, flex-start);
+        width: 50%;
+        gap: 50px;
+    }
+
+    &__copyright {
+        @include flex;
+        width: 100%;
+        height: 50px;
+        background-color: $black;
+
+        &-title {
+            @include text ($white, 22px, $calama, 500, 20px, +1px);
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+.info {
+    @include flex(column, space-between, center);
+    width: 50%;
+    height: 100%;
+
+    &-title {
+        @include text($black, 32px, $calama, 700);
+        letter-spacing: +3px;
+    }
+
+    &__block {
+        @include flex(column, space-between, center);
+        margin-top: 30px;
+        width: 100%;
+
+        &-link {
+            font-weight: 700;
+            color: $black;
+        }
+
+        &-text {
+            @include text($black, 24px, 'Calibri', 500);
+            margin-top: 15px;
+        }
+
+        &.row {
+            @include flex(row, center);
+            flex-wrap: wrap;
+        }
+    }
+}
