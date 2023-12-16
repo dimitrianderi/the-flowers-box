@@ -26,21 +26,27 @@
               target="_blank"
               href="https://www.instagram.com/explore/tags/flowers_box/"
             >
-              <font-awesome-icon class="info__block-icon" icon="fa-brands fa-instagram"
+              <font-awesome-icon
+                class="info__block-icon"
+                icon="fa-brands fa-instagram"
             /></a>
             <a
               class="info__block-text"
               target="_blank"
               href="https://twitter.com/ammanflowers"
             >
-              <font-awesome-icon class="info__block-icon" icon="fa-brands fa-x-twitter"
+              <font-awesome-icon
+                class="info__block-icon"
+                icon="fa-brands fa-x-twitter"
             /></a>
             <a
               class="info__block-text"
               target="_blank"
               href="https://www.facebook.com/flowersboxamman/"
             >
-              <font-awesome-icon class="info__block-icon" icon="fa-brands fa-facebook"
+              <font-awesome-icon
+                class="info__block-icon"
+                icon="fa-brands fa-facebook"
             /></a>
           </div>
           <span class="info__block-text"

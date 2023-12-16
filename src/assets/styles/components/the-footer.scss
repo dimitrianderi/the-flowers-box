@@ -4,7 +4,7 @@
     width: 100%;
     height: 100%;
     background-color: $pink;
-    background-image: url('@@/img/footer.jpg');
+    background-image: url($background);
     object-fit: cover;
     background-size: cover;
     background-attachment: fixed;

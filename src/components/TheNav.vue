@@ -38,7 +38,7 @@ export default {
       isScrolled.value = window.scrollY >= 100
     }
 
-    onMounted(() => window.addEventListener('scroll', handleScroll))
+    onMounted(() => window.addEventListener('scroll', handleScroll, { passive: true }))
 
     return {
       isScrolled,
