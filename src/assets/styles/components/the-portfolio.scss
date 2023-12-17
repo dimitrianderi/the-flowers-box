@@ -1,0 +1,56 @@
+.portfolio {
+  width: 100%;
+  background-color: $whiteCream;
+
+  &__container {
+    @include flex(column);
+    padding: 50px;
+  }
+
+  &__title {
+    @include text($black, 72px, $fashion, 700);
+    margin-top: 70px;
+  }
+
+  &__description {
+    @include text($black, 26px, Calibri, 500, _, +5px);
+  }
+
+  &__cards {
+    margin-top: 50px;
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  &__card {
+    @include flex(column, center, center);
+    background-color: $white;
+    text-align: center;
+    padding: 50px;
+
+    &-title {
+      @include text($black, 32px, $calama, 500, _, +1px);
+    }
+
+    &-img {
+      width: 100%;
+      margin-top: 30px;
+      border: 1px solid $black;
+      padding: 5px;
+      height: 250px;
+      overflow: hidden;
+    }
+
+    &-btn {
+      @include btn(100%, 32px, $black, $white, 20px);
+      margin-top: 30px;
+    }
+  }
+  &-btn {
+    @include btn(100%, 32px, $black, $white, 25px);
+    width: 70%;
+    margin-top: 30px;
+  }
+}
