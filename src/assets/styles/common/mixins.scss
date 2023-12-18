@@ -47,11 +47,11 @@
   letter-spacing: $spacing;
 }
 
-@mixin btn($width: 200px, $size: 32px, $color: $white, $shadow: $black, $height: 50px) {
+@mixin btn($width: 200px, $size: 32px, $color: $white, $shadow: $black, $height: 50px, $border: 1px solid $white) {
   width: $width;
   font-size: $size;
   color: $color;
-  border: 1px solid $white;
+  border: $border;
   padding: 15px;
   padding-bottom: 25px;
   font-family: $calama, Arial, Helvetica, sans-serif;
