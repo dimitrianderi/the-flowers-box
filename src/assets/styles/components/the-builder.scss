@@ -1,0 +1,66 @@
+.builder {
+  width: 100%;
+
+  &__header {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 1)
+      ),
+      url($builderImg);
+    background-position: top;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+  }
+
+  &__container {
+    @include flex(column, flex-start, center);
+    margin-top: -180px;
+    background-color: $white;
+    max-width: 1200px;
+    padding: 50px;
+  }
+
+  &-title {
+    @include text($black, 72px, $fashion, 700);
+    margin-top: 30px;
+  }
+
+  &-description {
+    @include text($black, 26px, Calibri, 500, _, +2px);
+    margin-top: 10px;
+  }
+
+  &-text {
+    @include text($black, 22px, Calibri, 100, 30px, +1px);
+    width: 80%;
+    text-align: justify;
+    margin-top: 50px;
+  }
+
+  &-btn {
+    @include btn(100%, 32px, $black, $white, 25px, none);
+    width: 80%;
+    margin-top: 30px;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 40%;
+      border: 2px solid $whiteCream;
+      cursor: default;
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      right: 0;
+    }
+  }
+}
