@@ -21,33 +21,14 @@
         <div class="info">
           <div class="info-title">CONTACTS</div>
           <div class="info__block row">
-            <a
-              class="info__block-text"
-              target="_blank"
-              href="https://www.instagram.com/explore/tags/flowers_box/"
-            >
-              <font-awesome-icon
-                class="info__block-icon"
-                icon="fa-brands fa-instagram"
-            /></a>
-            <a
-              class="info__block-text"
-              target="_blank"
-              href="https://twitter.com/ammanflowers"
-            >
-              <font-awesome-icon
-                class="info__block-icon"
-                icon="fa-brands fa-x-twitter"
-            /></a>
-            <a
-              class="info__block-text"
-              target="_blank"
-              href="https://www.facebook.com/flowersboxamman/"
-            >
-              <font-awesome-icon
-                class="info__block-icon"
-                icon="fa-brands fa-facebook"
-            /></a>
+            <app-link-icon
+              class="info__block__icons"
+              v-for="(icon, idx) in icons"
+              :key="idx"
+              :href="icon.href"
+              :iconClass="icon.iconClass"
+              :isDark="true"
+            ></app-link-icon>
           </div>
           <span class="info__block-text"
             ><a class="info__block-link" href="tel:+962796630848"
@@ -71,7 +52,28 @@
 </template>
 
 <script>
-export default {}
+import AppLinkIcon from './ui/AppLinkIcon.vue'
+export default {
+  components: { AppLinkIcon },
+  setup() {
+    const icons = [
+      {
+        href: 'https://www.instagram.com/explore/tags/flowers_box/',
+        iconClass: 'fa-brands fa-instagram',
+      },
+      {
+        href: 'https://twitter.com/ammanflowers/',
+        iconClass: 'fa-brands fa-x-twitter',
+      },
+      {
+        href: 'https://www.facebook.com/flowersboxamman/',
+        iconClass: 'fa-brands fa-facebook',
+      },
+    ]
+
+    return { icons }
+  },
+}
 </script>
 
 <style></style>
