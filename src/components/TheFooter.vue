@@ -41,9 +41,7 @@
               :key="contact.title"
             >
               <a class="info__block-link" :href="contact.href">
-              {{
-                contact.title
-              }}
+                {{ contact.title }}
               </a>
             </span>
           </div>
@@ -60,32 +58,12 @@
 
 <script>
 import AppLinkIcon from './ui/AppLinkIcon.vue'
+import { fullAddress, contacts, icons } from '@/config/the-footer.js'
+
 export default {
   components: { AppLinkIcon },
-  setup() {
-    const fullAddress = ['Jordan', 'Amman, 11942', 'Al-Mwadah St, 7th Cir.']
-    const contacts = [
-      { title: '+962 7 9663 0848', href: 'tel:+962796630848' },
-      {
-        title: 'flowersbox7@hotmail.com',
-        href: 'mailto:flowersbox7@hotmail.com',
-      },
-    ]
-    const icons = [
-      {
-        href: 'https://www.instagram.com/explore/tags/flowers_box/',
-        iconClass: 'fa-brands fa-instagram',
-      },
-      {
-        href: 'https://twitter.com/ammanflowers/',
-        iconClass: 'fa-brands fa-x-twitter',
-      },
-      {
-        href: 'https://www.facebook.com/flowersboxamman/',
-        iconClass: 'fa-brands fa-facebook',
-      },
-    ]
 
+  setup() {
     return { icons, fullAddress, contacts }
   },
 }
