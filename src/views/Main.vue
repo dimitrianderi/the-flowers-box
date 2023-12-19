@@ -1,5 +1,5 @@
 <template>
-  <!-- <the-header></the-header> -->
+  <the-header></the-header>
   <main>
     <the-achievements></the-achievements>
     <the-portfolio></the-portfolio>
