@@ -11,6 +11,7 @@
     margin-top: 50px;
     height: 100%;
     gap: 50px;
+    padding: 0 20px;
     flex-wrap: wrap;
   }
 
@@ -66,8 +67,7 @@
     letter-spacing: +3px;
     
     @media screen and (min-width: 480px) and (max-width: 767.9px) {
-      @include text($black, 42px, $calama, 700);
-      letter-spacing: +3px;
+      font-size: 42px;
     }
   }
 
@@ -82,10 +82,10 @@
       overflow-wrap: break-word;
 
       @media screen and (min-width: 480px) and (max-width: 767.9px) {
-        @include text($black, 30px, 'Calibri', 700);
-
+        font-size: 30px;
+        
         &:hover {
-          @include text($gray, 30px, 'Calibri', 700);
+          font-size: 30px;
         }
       }
 
@@ -99,7 +99,7 @@
       margin-top: 30px;
 
       @media screen and (min-width: 480px) and (max-width: 767.9px) {
-        @include text($black, 30px, 'Calibri', 500);
+        font-size: 30px;
       }
     }
 

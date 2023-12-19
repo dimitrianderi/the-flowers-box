@@ -12,6 +12,10 @@
     background-size: cover;
     height: 300px;
     width: 100%;
+
+    @media screen and (max-width: 767.9px) {
+      height: 250px;
+    }
   }
 
   &__container {
@@ -20,17 +24,49 @@
     background-color: $white;
     max-width: 1200px;
     padding: 50px;
+
+    @media screen and (max-width: 767.9px) {
+      padding: 30px;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      padding: 10px;
+    }
   }
 
   &-title {
     @include text($black, 72px, $fashion, 700);
     margin-top: 30px;
+
+    @media screen and (max-width: 767.9px) {
+      font-size: 56px;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      margin-top: 20px;
+      font-size: 42px;
+    }
   }
 
   &-description {
     @include text($black, 26px, Calibri, 500, _, +2px);
     margin-top: 10px;
     width: 80%;
+    text-align: center;
+
+    @media screen and (max-width: 1199.9px) {
+      font-size: 22px;
+    }
+
+    @media screen and (max-width: 767.9px) {
+      font-size: 18px;
+      letter-spacing: +1px;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      margin-top: 0;
+      font-size: 16px;
+    }
   }
 
   &-text {
@@ -38,6 +74,24 @@
     width: 80%;
     text-align: justify;
     margin-top: 50px;
+
+    @media screen and (max-width: 1199.9px) {
+      font-size: 20px;
+      letter-spacing: 0;
+      line-height: 28px;
+    }
+    
+    @media screen and (max-width: 767.9px) {
+      font-size: 17px;
+      line-height: 26px;
+      margin-top: 30px;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      margin-top: 15px;
+      font-size: 15px;
+      line-height: 20px;
+    }
   }
 
   &-btn {
@@ -54,6 +108,18 @@
       width: 40%;
       border: 2px solid $whiteCream;
       cursor: default;
+
+      @media screen and (max-width: 1199.9px) {
+        width: 35%;
+      }
+  
+      @media screen and (max-width: 767.9px) {
+        width: 25%;
+      }
+  
+      @media screen and (max-width: 479.9px) {
+        width: 20%;
+      }
     }
 
     &::before {
