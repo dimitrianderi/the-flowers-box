@@ -1,6 +1,4 @@
 .link {
-  @include text($black, 24px);
-
   &-icon {
     @include icon($black, $white);
 

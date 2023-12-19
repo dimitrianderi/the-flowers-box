@@ -1,38 +1,45 @@
 .footer {
-  @include flex(column, justify-content, flex-start);
-  display: flex;
+  @include flex(column, space-between, center);
   width: 100%;
-  height: 100%;
   background-color: $pink;
   background-image: url($background);
   object-fit: cover;
   background-size: cover;
   background-attachment: fixed;
-  padding: 50px 0;
 
   &__container {
-    @include flex(row, justify-content, flex-start);
+    margin-top: 50px;
     height: 100%;
     gap: 50px;
+    flex-wrap: wrap;
   }
 
   &__map {
-    width: 50%;
-    flex-shrink: 0;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
     overflow: hidden;
     align-self: stretch;
+    flex-grow: 1;
+
+    @media screen and (max-width: 1199.9px) {
+      width: 100%;
+      height: 250px;
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &__info {
-    @include flex(_, _, flex-start);
-    width: 50%;
+    @include flex(row, space-between, space-between);
     gap: 50px;
+    flex-grow: 1;
+    flex-wrap: wrap;
   }
 
   &__copyright {
     @include flex;
+    margin-top: 50px;
     width: 100%;
     height: 50px;
     background-color: $black;
@@ -47,12 +54,21 @@
 
 .info {
   @include flex(column, space-between, center);
-  width: 50%;
-  height: 100%;
+  width: calc(50% - 25px);
+
+  @media screen and (max-width: 767.9px) {
+    width: 100%;
+    margin-top: 20px;
+  }
 
   &-title {
     @include text($black, 32px, $calama, 700);
     letter-spacing: +3px;
+    
+    @media screen and (min-width: 480px) and (max-width: 767.9px) {
+      @include text($black, 42px, $calama, 700);
+      letter-spacing: +3px;
+    }
   }
 
   &__block {
@@ -62,7 +78,16 @@
 
     &-link {
       @include text($black, 24px, 'Calibri', 700);
-      transition: all .3s ease;
+      transition: all 0.3s ease;
+      overflow-wrap: break-word;
+
+      @media screen and (min-width: 480px) and (max-width: 767.9px) {
+        @include text($black, 30px, 'Calibri', 700);
+
+        &:hover {
+          @include text($gray, 30px, 'Calibri', 700);
+        }
+      }
 
       &:hover {
         @include text($gray, 24px, 'Calibri', 700);
@@ -72,6 +97,10 @@
     &-text {
       @include text($black, 24px, 'Calibri', 500);
       margin-top: 30px;
+
+      @media screen and (min-width: 480px) and (max-width: 767.9px) {
+        @include text($black, 30px, 'Calibri', 500);
+      }
     }
 
     &.row {
@@ -80,7 +109,11 @@
     }
 
     &__icons {
-      margin-top: 30px;
+      margin-top: 25px;
+
+      @media screen and (max-width: 479.9px) {
+        margin-top: 30px;
+      }
     }
   }
 }

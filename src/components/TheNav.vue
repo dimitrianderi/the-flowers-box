@@ -6,25 +6,10 @@
       </div>
       <nav class="menu__navbar">
         <ul class="nav">
-          <li class="nav__item">
-            <a href="#" :class="['nav__link', { scrolled: isScrolled }]"
-              >Link1</a
-            >
-          </li>
-          <li class="nav__item">
-            <a href="#" :class="['nav__link', { scrolled: isScrolled }]"
-              >Ссылка2</a
-            >
-          </li>
-          <li class="nav__item">
-            <a href="#" :class="['nav__link', { scrolled: isScrolled }]"
-              >Ссылка3</a
-            >
-          </li>
-          <li class="nav__item">
-            <a href="#" :class="['nav__link', { scrolled: isScrolled }]"
-              >Ссылка4</a
-            >
+          <li class="nav__item" v-for="link in links" :key="link">
+            <a href="#" :class="['nav__link', { scrolled: isScrolled }]">
+              {{ link }}
+            </a>
           </li>
         </ul>
         <div class="menu__icons">
@@ -64,6 +49,8 @@ export default {
       },
     ]
 
+    const links = ['Home', 'Bouquets', 'Builder', 'FAQ']
+
     const handleScroll = () => {
       isScrolled.value = window.scrollY >= 100
     }
@@ -75,6 +62,7 @@ export default {
     return {
       isScrolled,
       icons,
+      links,
     }
   },
 }

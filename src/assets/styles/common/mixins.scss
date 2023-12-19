@@ -5,7 +5,7 @@
   align-items: $align;
 }
 
-@mixin icon($color: $black, $second-color: $gray, $size: 22px) {
+@mixin icon($color: $black, $second-color: $gray, $size: 24px) {
   height: $size;
   color: $color;
   padding: 0 15px;
