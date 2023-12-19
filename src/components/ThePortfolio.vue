@@ -1,8 +1,8 @@
 <template>
   <section class="portfolio">
     <div class="portfolio__container container">
-      <h2 class="portfolio__title">Portfolio</h2>
-      <span class="portfolio__description">a selection of our work</span>
+      <h2 class="portfolio__title">{{ portfolio.title }}</h2>
+      <span class="portfolio__description">{{ portfolio.description }}</span>
       <div class="portfolio__cards">
         <div class="portfolio__card" v-for="(card, idx) in cards" :key="idx">
           <div class="portfolio__card-title">
@@ -15,24 +15,22 @@
               alt="bouquet"
             />
           </div>
-          <div class="portfolio__card-btn">more</div>
+          <div class="portfolio__card-btn">{{ btn.small }}</div>
         </div>
       </div>
-      <button class="portfolio-btn">see all bouquets</button>
+      <button class="portfolio-btn">{{ btn.big }}</button>
     </div>
   </section>
 </template>
 
 <script>
+import { cards, portfolioData as portfolio, btn } from '@/config/the-portfolio.js'
 export default {
   setup() {
-    const cards = [
-      { title: 'Designer bouquets' },
-      { title: 'Custom bouquets' },
-      { title: 'My bouquets' },
-    ]
     return {
       cards,
+      portfolio,
+      btn
     }
   },
 }

@@ -1,8 +1,8 @@
 <template>
   <!-- <the-header></the-header> -->
   <main>
-    <!-- <the-achievements></the-achievements>
-    <the-portfolio></the-portfolio> -->
+    <!-- <the-achievements></the-achievements> -->
+    <the-portfolio></the-portfolio>
     <the-builder></the-builder>
   </main>
   <the-footer></the-footer>

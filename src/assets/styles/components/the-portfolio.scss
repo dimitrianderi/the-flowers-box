@@ -5,23 +5,66 @@
   &__container {
     @include flex(column);
     padding: 50px;
+
+    @media screen and (max-width: 767.9px) {
+      padding: 30px;
+    }
   }
 
   &__title {
     @include text($black, 72px, $fashion, 700);
     margin-top: 70px;
+
+    @media screen and (max-width: 767.9px) {
+      margin-top: 60px;
+      font-size: 56px;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      margin-top: 30px;
+      font-size: 42px;
+    }
   }
 
   &__description {
     @include text($black, 26px, Calibri, 500, _, +5px);
+
+    @media screen and (max-width: 1199.9px) {
+      font-size: 24px;
+    }
+
+    @media screen and (max-width: 767.9px) {
+      font-size: 22px;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      font-size: 20px;
+      letter-spacing: +2px;
+    }
   }
 
   &__cards {
-    margin-top: 50px;
-    width: 70%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    @include flex(row, center);
     gap: 30px;
+    margin-top: 50px;
+
+    @media screen and (max-width: 1199.9px) {
+      margin-top: 40px;
+      gap: 25px;
+    }
+
+    @media screen and (max-width: 767.9px) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 30px;
+      gap: 20px;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      margin-top: 10px;
+      gap: 15px;
+    }
   }
 
   &__card {
@@ -29,30 +72,95 @@
     background-color: $white;
     text-align: center;
     padding: 50px;
+    width: 270px;
+
+    @media screen and (max-width: 1199.9px) {
+      padding: 30px;
+      width: 230px;
+    }
+
+    @media screen and (max-width: 767.9px) {
+      padding: 25px;
+      width: 270px;
+      margin-top: 20px;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      gap: 20px;
+      width: 250px;
+    }
 
     &-title {
       @include text($black, 32px, $calama, 500, _, +1px);
+
+      @media screen and (max-width: 1199.9px) {
+        font-size: 28px;
+      }
+
+      @media screen and (max-width: 767.9px) {
+        font-size: 32px;
+      }
+
+      @media screen and (max-width: 479.9px) {
+        font-size: 30px;
+      }
     }
 
     &-img {
       width: 100%;
       margin-top: 30px;
+      height: 250px;
       border: 1px solid $gray;
       padding: 5px;
-      height: 250px;
       overflow: hidden;
+
+      @media screen and (max-width: 1199.9px) {
+        height: 230px;
+        margin-top: 25px;
+      }
+
+      @media screen and (max-width: 767.9px) {
+        margin-top: 30px;
+      }
+
+      @media screen and (max-width: 479.9px) {
+        margin-top: 10px;
+      }
     }
 
     &-btn {
       @include btn(100%, 32px, $black, $white, 20px);
       margin-top: 30px;
+
+      @media screen and (max-width: 1199.9px) {
+        margin-top: 25px;
+      }
+
+      @media screen and (max-width: 767.9px) {
+        margin-top: 30px;
+      }
+
+      @media screen and (max-width: 479.9px) {
+        margin-top: 1px;
+      }
     }
   }
   &-btn {
     @include btn(100%, 32px, $black, $white, 25px, none);
-    width: 70%;
+    width: 870px;
     margin-top: 30px;
     position: relative;
+
+    @media screen and (max-width: 1199.9px) {
+      margin-top: 25px;
+      width: 740px;
+    }
+
+    @media screen and (max-width: 767.9px) {
+      margin-top: 25px;
+      width: 80%;
+      min-width: 250px
+    }
 
     &::before,
     &::after {
@@ -62,6 +170,18 @@
       width: 40%;
       border: 2px solid $whiteCream;
       cursor: default;
+
+      @media screen and (max-width: 1199.9px) {
+        width: 35%;
+      }
+
+      @media screen and (max-width: 767.9px) {
+        width: 22%;
+      }
+
+      @media screen and (max-width: 479.9px) {
+        width: 20%;
+      }
     }
 
     &::before {
