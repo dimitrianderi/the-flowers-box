@@ -51,16 +51,11 @@
 
 <script>
 import { onMounted, ref } from 'vue'
+import { slides } from '@/config/the-header.js'
 export default {
   setup() {
     const currentSlide = ref(0)
     const interval = ref(null)
-
-    const slides = [
-      { title: 'wedding bouquets' },
-      { title: 'birthday bouquets' },
-      { title: 'festive bouquets' },
-    ]
 
     const changeSlide = (slide) => {
       clearInterval(interval.value)
