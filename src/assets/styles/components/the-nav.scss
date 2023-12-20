@@ -106,7 +106,7 @@
       @include link($black, $black);
     }
 
-    &.active {
+    &.scrolled {
       @include link;
     }
   }
