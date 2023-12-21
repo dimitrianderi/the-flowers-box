@@ -19,7 +19,7 @@
     z-index: 5;
 
     @media screen and (max-width: 479.9px) {
-      height: 40px;
+      height: 35px;
     }
 
     &-img {
@@ -41,7 +41,7 @@
     }
 
     @media screen and (max-width: 767.9px) {
-      width: calc(50% + 48px);
+      width: calc(50% + 58px);
     }
   }
 
@@ -67,23 +67,25 @@
     @include flex(column, flex-start, center);
     position: absolute;
     top: -400%;
-    left: 0;
     width: 100%;
+    left: 0;
     background-color: transparent;
     line-height: 30px;
     transition: all 0.5s ease;
     z-index: -1;
+    margin: 0;
+    padding: 50px 0 0 0;
 
     &.active {
       background-color: $white;
-      top: 40px;
+      top: 0;
     }
   }
 
   &__item {
     padding: 0 25px;
     border-right: 2px solid $black;
-
+    
     @media screen and (max-width: 1199.9px) {
       padding: 0 20px;
     }
@@ -92,11 +94,18 @@
       border: none;
       margin-top: 10px;
       padding: 0;
+      width: 100%;
+      text-align: center;
+      
+      &:first-child {
+        border-top: 1px solid $black;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
     }
 
-    &:last-child {
-      border-right: none;
-    }
   }
 
   &__link {

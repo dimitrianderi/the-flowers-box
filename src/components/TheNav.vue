@@ -1,5 +1,5 @@
 <template>
-  <div class="menu" :class="{ active: isScrolled || isOpenBurger }">
+  <div class="menu" :class="{ active: isScrolled }">
     <div class="container">
       <div class="menu__logo">
         <img class="menu__logo-img" src="@@/img/logo.png" alt="logo" />
