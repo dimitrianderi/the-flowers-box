@@ -7,9 +7,12 @@
       <nav class="menu__navbar">
         <ul class="nav" :class="{ active: isOpenBurger }">
           <li class="nav__item" v-for="link in links" :key="link">
-            <a href="#" :class="['nav__link', { scrolled: isScrolled }]">
-              {{ link }}
-            </a>
+            <router-link
+              :to="link.to"
+              :class="['nav__link', { scrolled: isScrolled }]"
+            >
+              {{ link.title }}
+            </router-link>
           </li>
         </ul>
         <div class="menu__icons">

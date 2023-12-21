@@ -11,4 +11,9 @@ export const icons = [
     },
 ]
 
-export const links = ['Home', 'Bouquets', 'Builder', 'FAQ']
+export const links = [
+    { title: 'Home', to: '/' },
+    { title: 'Bouquets', to: '/bouquets' },
+    { title: 'Builder', to: '/builder' },
+    { title: 'FAQ', to: '/faq' },
+]
