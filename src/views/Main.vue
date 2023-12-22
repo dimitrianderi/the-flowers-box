@@ -5,7 +5,6 @@
     <the-portfolio></the-portfolio>
     <the-builder></the-builder>
   </main>
-  <the-footer></the-footer>
 </template>
 
 <script>
@@ -15,7 +14,13 @@ import TheAchievements from '@/components/TheAchievements.vue'
 import ThePortfolio from '@/components/ThePortfolio.vue'
 import TheBuilder from '@/components/TheBuilder.vue'
 export default {
-  components: { TheHeader, TheFooter, TheAchievements, ThePortfolio, TheBuilder },
+  components: {
+    TheHeader,
+    TheFooter,
+    TheAchievements,
+    ThePortfolio,
+    TheBuilder,
+  },
   name: 'Main',
 }
 </script>

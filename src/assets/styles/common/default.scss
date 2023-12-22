@@ -7,6 +7,12 @@ li {
   list-style-type: none;
 }
 
+#app {
+  @include flex(column, space-between, stretch);
+  min-height: 100vh;
+  background-color: $whiteCream;
+}
+
 .container {
   @include flex;
   width: 100%;

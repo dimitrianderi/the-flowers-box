@@ -9,6 +9,14 @@ const routes = [
             layout: 'main'
         }
     },
+    {
+        path: '/builder',
+        name: 'Builder',
+        component: () => import('@/views/Builder.vue'),
+        meta: {
+            layout: 'main'
+        }
+    },
 ]
 
 const router = createRouter({

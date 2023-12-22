@@ -1,0 +1,77 @@
+.accordion {
+  @include flex(column, space-between, flex-start);
+  width: 100%;
+  margin-top: 150px;
+  border-radius: 25px;
+  background: $white;
+  overflow: hidden;
+
+  &__checkbox {
+    display: none;
+    position: absolute;
+
+    &:checked ~ .accordion__label:before {
+      transform: rotate(90deg);
+      opacity: 0;
+      will-change: transform;
+      transition: all .1s ease;
+    }
+
+    &:checked ~ .accordion__label:after {
+      transform: rotate(180deg);
+    }
+
+    &:checked ~ .accordion__content {
+      max-height: 1000px;
+      will-change: transform;
+      transition: all 1s ease;
+    }
+  }
+
+  &__label {
+    width: 100%;
+    padding: 30px 50px;
+    color: $black;
+    position: relative;
+    cursor: pointer;
+
+    &-idx {
+      @include text($gray, 18px, 'Arial', 700);
+      margin-right: 15px;
+    }
+
+    &-title {
+      @include text($black, 18px, 'Arial', 700);
+      margin-right: 15px;
+    }
+
+    &:after,
+    &:before {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 3px;
+      top: 50%;
+      right: 20px;
+      background: $black;
+      will-change: transform;
+      transition: all .1s ease;
+    }
+
+    &:after {
+      transform: rotate(90deg);
+      will-change: transform;
+      transition: all .1s ease;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    padding: 0 50px;
+    max-height: 0;
+    will-change: transform;
+    overflow: hidden;
+    // transition: all 1s ease;
+    transition: all .1s ease;
+  }
+}
