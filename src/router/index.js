@@ -22,16 +22,18 @@ const routes = [
         name: 'Faq',
         component: () => import('@/views/Faq.vue'),
         meta: {
-            layout: 'main'
+            layout: 'main',
         },
-    },
-    {
-        path: '/faq/:topic(creating-bouquets|another-topic|yet-another-topic)',
-        name: 'FaqSection',
-        component: () => import('@/views/sections/FaqSection.vue'),
-        meta: {
-            layout: 'main'
-        }
+        children: [
+            {
+                path: 'creating-bouquets',
+                name: 'Creating Bouquets',
+                component: () => import('@/views/sections/FaqSection.vue'),
+                meta: {
+                    layout: 'main',
+                }
+            },
+        ]
     },
 ]
 
