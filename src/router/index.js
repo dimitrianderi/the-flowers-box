@@ -17,6 +17,22 @@ const routes = [
             layout: 'main'
         }
     },
+    {
+        path: '/faq',
+        name: 'Faq',
+        component: () => import('@/views/Faq.vue'),
+        meta: {
+            layout: 'main'
+        },
+    },
+    {
+        path: '/faq/:topic(creating-bouquets|another-topic|yet-another-topic)',
+        name: 'Section',
+        component: () => import('@/views/sections/Section.vue'),
+        meta: {
+            layout: 'main'
+        }
+    },
 ]
 
 const router = createRouter({

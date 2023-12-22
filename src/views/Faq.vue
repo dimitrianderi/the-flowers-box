@@ -1,18 +1,17 @@
 <template>
   <app-sections
-    title="Portfolio"
-    description="a selection of our work"
+    title="FAQ"
+    description="choose a topic of interest"
     btn="more"
-    name="portfolio"
+    name="faq"
     :cards="cards"
   >
-    <button class="portfolio-btn">see all bouquets</button>
   </app-sections>
 </template>
 
 <script>
-import { cards } from '@/config/the-portfolio.js'
 import AppSections from '@/components/ui/AppSections.vue'
+import { cards } from '@/config/app-sections.js'
 
 export default {
   components: { AppSections },
