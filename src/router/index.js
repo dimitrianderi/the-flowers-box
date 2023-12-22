@@ -27,8 +27,8 @@ const routes = [
     },
     {
         path: '/faq/:topic(creating-bouquets|another-topic|yet-another-topic)',
-        name: 'Section',
-        component: () => import('@/views/sections/Section.vue'),
+        name: 'FaqSection',
+        component: () => import('@/views/sections/FaqSection.vue'),
         meta: {
             layout: 'main'
         }
@@ -39,7 +39,12 @@ const router = createRouter({
     history: createWebHistory(),
     routes,
     linkActiveClass: 'active',
-    linkExactActiveClass: 'active'
+    linkExactActiveClass: 'active',
+    scrollBehavior() {
+        window.scrollTo({
+            top: 0,
+        });
+    }
 })
 
 export default router

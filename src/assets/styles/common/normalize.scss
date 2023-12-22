@@ -1,2 +1,11 @@
-@import "node_modules/normalize-scss/sass/normalize";
+@import 'node_modules/normalize-scss/sass/normalize';
 @include normalize();
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}

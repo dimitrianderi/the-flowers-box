@@ -9,9 +9,19 @@
           <li class="nav__item" v-for="link in links" :key="link">
             <router-link
               :to="link.to"
-              :class="['nav__link', { scrolled: isScrolled }]"
-            >
-              {{ link.title }}
+              custom
+              v-slot="{ navigate, href }"
+              ><a
+                href="#"
+                @click="navigate"
+                :class="[
+                  'nav__link',
+                  { active: $route.path.split('/')[1] === href.split('/')[1] },
+                  { scrolled: isScrolled || $route.path !== '/'}
+                ]"
+              >
+                {{ link.title }}
+              </a>
             </router-link>
           </li>
         </ul>

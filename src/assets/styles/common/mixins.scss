@@ -21,7 +21,7 @@
   $color: $black,
   $second-color: $gray,
   $size: 28px,
-  $family: $calama ,
+  $family: $calama,
   $weight: 500,
   $spacing: +2px
 ) {
@@ -37,7 +37,7 @@
   &.active {
     border-bottom: 3px solid $black;
   }
-  
+
   &:hover {
     color: $second-color;
     border-bottom: 3px solid $second-color;
@@ -46,10 +46,16 @@
       border-bottom: 3px solid $second-color;
     }
   }
-
 }
 
-@mixin text($color: $white, $size: 18px, $family: $calama, $weight: 500, $height: 20px, $spacing: 0) {
+@mixin text(
+  $color: $white,
+  $size: 18px,
+  $family: $calama,
+  $weight: 500,
+  $height: 20px,
+  $spacing: 0
+) {
   color: $color;
   font-size: $size;
   font-family: $family, Arial, Helvetica, sans-serif;
@@ -58,7 +64,14 @@
   letter-spacing: $spacing;
 }
 
-@mixin btn($width: 200px, $size: 32px, $color: $white, $shadow: $black, $height: 50px, $border: 1px solid $white) {
+@mixin btn(
+  $width: 200px,
+  $size: 32px,
+  $color: $white,
+  $shadow: $black,
+  $height: 50px,
+  $border: 1px solid $white
+) {
   width: $width;
   font-size: $size;
   color: $color;
@@ -66,16 +79,16 @@
   padding: 15px;
   padding-bottom: 25px;
   font-family: $calama, Arial, Helvetica, sans-serif;
-  background-color: rgb($black, .1);
+  background-color: rgb($black, 0.1);
   backdrop-filter: blur(10px);
   text-align: center;
   line-height: $height;
   display: inline-block;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
 
   &:hover {
-    background-color: rgb(0, 0, 0, .2);
+    background-color: rgb(0, 0, 0, 0.2);
     text-shadow: 2px 2px 2px $shadow;
   }
 }

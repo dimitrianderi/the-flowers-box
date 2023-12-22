@@ -1,18 +1,18 @@
 <template>
-  <section class="accordion">
+  <div class="accordion">
     <input
       type="checkbox"
       class="accordion__checkbox"
-      id="accordion__checkbox"
+      :id="id"
     />
-    <label class="accordion__label" for="accordion__checkbox">
+    <label class="accordion__label" :for="id">
       <span class="accordion__label-idx" v-if="idx !== null">{{ idx }}</span>
       <span class="accordion__label-title">{{ title }}</span>
     </label>
     <div class="accordion__content">
       <slot>Accordion</slot>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -23,6 +23,7 @@ export default {
       type: String,
       default: null,
     },
+    id: String,
     title: String,
   },
 

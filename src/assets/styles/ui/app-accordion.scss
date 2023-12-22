@@ -1,8 +1,7 @@
 .accordion {
   @include flex(column, space-between, flex-start);
   width: 100%;
-  margin-top: 150px;
-  border-radius: 25px;
+  border-radius: 20px;
   background: $white;
   overflow: hidden;
 
@@ -14,11 +13,16 @@
       transform: rotate(90deg);
       opacity: 0;
       will-change: transform;
-      transition: all .1s ease;
+      transition: all 0.1s ease;
     }
 
     &:checked ~ .accordion__label:after {
       transform: rotate(180deg);
+    }
+
+    &:checked ~ .accordion__label {
+      background-color: $pink;
+      transition: all .3s ease;
     }
 
     &:checked ~ .accordion__content {
@@ -34,6 +38,7 @@
     color: $black;
     position: relative;
     cursor: pointer;
+    transition: all .3s ease;
 
     &-idx {
       @include text($gray, 18px, 'Arial', 700);
@@ -55,23 +60,21 @@
       right: 20px;
       background: $black;
       will-change: transform;
-      transition: all .1s ease;
+      transition: all 0.1s ease;
     }
 
     &:after {
       transform: rotate(90deg);
       will-change: transform;
-      transition: all .1s ease;
+      transition: all 0.1s ease;
     }
   }
 
   &__content {
     width: 100%;
-    padding: 0 50px;
     max-height: 0;
     will-change: transform;
     overflow: hidden;
-    // transition: all 1s ease;
-    transition: all .1s ease;
+    transition: all 0.1s ease;
   }
 }
