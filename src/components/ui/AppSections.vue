@@ -24,7 +24,9 @@
 </template>
 
 <script>
+import AppBreadCrumbs from '@/components/ui/AppBreadCrumbs.vue'
 export default {
+  components: { AppBreadCrumbs },
   props: {
     title: String,
     description: String,

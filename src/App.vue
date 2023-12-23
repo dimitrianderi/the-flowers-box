@@ -5,11 +5,11 @@
 <script>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import AuthLayout from '@/layouts/AuthLayout.vue'
 import MainLayout from '@/layouts/MainLayout.vue'
+import ContentLayout from './layouts/ContentLayout.vue'
 
 export default {
-  components: { AuthLayout, MainLayout },
+  components: { MainLayout, ContentLayout },
   setup() {
     const route = useRoute()
 

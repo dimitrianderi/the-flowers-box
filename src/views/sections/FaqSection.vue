@@ -1,6 +1,5 @@
 <template>
   <section class="faq-section container">
-    <app-bread-crumbs></app-bread-crumbs>
     <h2 class="faq-section__description">{{ questions[topic]['title'] }}</h2>
     <div class="faq-section__items">
       <app-accordion
@@ -22,10 +21,9 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { faq as questions } from '@/config/data/faq'
 import AppAccordion from '@/components/ui/AppAccordion.vue'
-import AppBreadCrumbs from '../../components/ui/AppBreadCrumbs.vue'
 
 export default {
-  components: { AppAccordion, AppBreadCrumbs },
+  components: { AppAccordion },
   
   setup() {
     const route = useRoute()

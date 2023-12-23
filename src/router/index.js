@@ -14,7 +14,7 @@ const routes = [
         name: 'Builder',
         component: () => import('@/views/Builder.vue'),
         meta: {
-            layout: 'main'
+            layout: 'content'
         }
     },
     {
@@ -22,7 +22,7 @@ const routes = [
         name: 'Faq',
         component: () => import('@/views/Faq.vue'),
         meta: {
-            layout: 'main',
+            layout: 'content',
         },
         children: [
             {
@@ -30,7 +30,7 @@ const routes = [
                 name: 'Creating Bouquets',
                 component: () => import('@/views/sections/FaqSection.vue'),
                 meta: {
-                    layout: 'main',
+                    layout: 'content',
                 }
             },
         ]

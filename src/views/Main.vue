@@ -13,6 +13,7 @@ import TheFooter from '@/components/TheFooter.vue'
 import TheAchievements from '@/components/TheAchievements.vue'
 import ThePortfolio from '@/components/ThePortfolio.vue'
 import TheBuilder from '@/components/TheBuilder.vue'
+
 export default {
   components: {
     TheHeader,
@@ -21,7 +22,6 @@ export default {
     ThePortfolio,
     TheBuilder,
   },
-  name: 'Main',
 }
 </script>
 

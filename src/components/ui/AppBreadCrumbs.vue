@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 export default {
@@ -23,6 +23,10 @@ export default {
     const getRoutes = () => {
       routes.value = route.matched
     }
+
+    watch(() => {
+      getRoutes()
+    })
 
     onMounted(() => {
       getRoutes()

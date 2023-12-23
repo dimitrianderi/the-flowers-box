@@ -4,10 +4,10 @@
 
   &__container {
     @include flex(column);
-    padding: 50px;
+    padding: 30px;
 
     @media screen and (max-width: 767.9px) {
-      padding: 30px;
+      padding: 20px;
     }
   }
 
