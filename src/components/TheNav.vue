@@ -60,7 +60,7 @@ export default {
     const isOpenBurger = ref(false)
 
     const handleScroll = () => {
-      isScrolled.value = window.scrollY >= 100
+      isScrolled.value = window.scrollY >= 1
     }
 
     const toggleBurger = () => {

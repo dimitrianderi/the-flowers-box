@@ -33,6 +33,22 @@ const routes = [
                     layout: 'content',
                 }
             },
+            {
+                path: 'delivery',
+                name: 'Delivery',
+                component: () => import('@/views/sections/FaqSection.vue'),
+                meta: {
+                    layout: 'content',
+                }
+            },
+            {
+                path: 'about',
+                name: 'About',
+                component: () => import('@/views/sections/FaqSection.vue'),
+                meta: {
+                    layout: 'content',
+                }
+            },
         ]
     },
 ]

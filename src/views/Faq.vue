@@ -15,7 +15,6 @@
 import AppSections from '@/components/ui/AppSections.vue'
 import { cards } from '@/config/app-sections.js'
 import { useRoute } from 'vue-router'
-import AppBreadCrumbs from '../components/ui/AppBreadCrumbs.vue'
 
 export default {
   components: { AppSections },

@@ -1,16 +1,14 @@
 <template>
   <div class="accordion">
-    <input
-      type="checkbox"
-      class="accordion__checkbox"
-      :id="id"
-    />
+    <input type="checkbox" class="accordion__checkbox" :id="id" />
     <label class="accordion__label" :for="id">
       <span class="accordion__label-idx" v-if="idx !== null">{{ idx }}</span>
       <span class="accordion__label-title">{{ title }}</span>
     </label>
     <div class="accordion__content">
-      <slot>Accordion</slot>
+      <div class="accordion__content-contain">
+        <slot>Accordion</slot>
+      </div>
     </div>
   </div>
 </template>
