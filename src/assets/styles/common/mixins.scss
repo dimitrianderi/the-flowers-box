@@ -92,3 +92,17 @@
     text-shadow: 2px 2px 2px $shadow;
   }
 }
+
+@mixin modal($top: 40%, $left: 50%) {
+  position: fixed;
+  top: $top;
+  left: $left;
+  transform: translate(-50%, -50%);
+  border-radius: 30px;
+  overflow: hidden;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}

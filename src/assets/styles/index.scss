@@ -18,6 +18,12 @@
 @import '@@/styles/ui/app-accordion.scss';
 @import '@@/styles/ui/app-sections.scss';
 @import '@@/styles/ui/app-bread-crumbs.scss';
+@import '@@/styles/ui/app-control.scss';
+@import '@@/styles/ui/app-form.scss';
+
+// views
+@import '@@/styles/views/auth_reg.scss';
+
 
 // sections
-@import '@@/styles/views/sections/faq-section.scss'
+@import '@@/styles/views/sections/faq-section.scss';

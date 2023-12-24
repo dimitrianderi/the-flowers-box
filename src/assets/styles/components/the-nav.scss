@@ -41,18 +41,21 @@
     }
 
     @media screen and (max-width: 767.9px) {
-      width: calc(50% + 58px);
+      width: calc(50% + 80px);
     }
   }
 
   &__icons {
     @include flex(row, flex-end, center);
+    width: 160px;
+
+    @media screen and (max-width: 767.9px) {
+      justify-content: center;
+    }
 
     &-icon {
-      @include icon($black, $white);
-
-      &.scrolled {
-        @include icon;
+      &.active {
+        color: white;
       }
     }
   }
@@ -85,6 +88,10 @@
   &__item {
     padding: 0 25px;
     border-right: 2px solid $black;
+
+    &:last-child {
+      border-right: none;
+    }
     
     @media screen and (max-width: 1199.9px) {
       padding: 0 20px;
@@ -99,10 +106,6 @@
       
       &:first-child {
         border-top: 1px solid $black;
-      }
-
-      &:last-child {
-        border-right: none;
       }
     }
 

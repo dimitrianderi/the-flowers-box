@@ -1,15 +1,21 @@
-export const icons = [
+export const iconsNotAuth = [
     {
-        href: '#',
+        href: '/auth',
         iconClass: 'fa-solid fa-user',
         title: 'log in',
     },
     {
-        href: '#',
+        href: '/reg',
         iconClass: 'fa-solid fa-address-card',
         title: 'sign up',
     },
 ]
+
+export const iconAuth = {
+    href: '/auth',
+    iconClass: 'fa-solid fa-right-from-bracket',
+    title: 'logout',
+}
 
 export const links = [
     { title: 'Home', to: '/' },

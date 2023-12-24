@@ -10,6 +10,22 @@ const routes = [
         }
     },
     {
+        path: '/auth',
+        name: 'Auth',
+        component: () => import('@/views/Auth.vue'),
+        meta: {
+            layout: 'main'
+        }
+    },
+    {
+        path: '/reg',
+        name: 'Reg',
+        component: () => import('@/views/Reg.vue'),
+        meta: {
+            layout: 'main'
+        }
+    },
+    {
         path: '/builder',
         name: 'Builder',
         component: () => import('@/views/Builder.vue'),
