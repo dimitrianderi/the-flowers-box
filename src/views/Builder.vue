@@ -7,6 +7,7 @@
     <div class="builder__wrapper">
       <div class="builder__stages">
         <app-accordion id="flowers" :idx="0" title="Choose the flowers">
+          <app-alert text="Maximum 3 flowers!"></app-alert>
           <div class="builder__stages__content">
             <app-collection
               v-for="flower in flowers"
@@ -58,11 +59,12 @@
 
 <script>
 import AppAccordion from '@/components/ui/AppAccordion.vue'
-import AppCollection from '../components/ui/AppCollection.vue'
+import AppCollection from '@/components/ui/AppCollection.vue'
+import AppAlert from '@/components/ui/AppAlert.vue'
 import { flowers, greeneries, packagings, compositions } from '@/config/data/flowers'
 
 export default {
-  components: { AppAccordion, AppCollection },
+  components: { AppAccordion, AppCollection, AppAlert },
   setup() {
     return { flowers, greeneries, packagings, compositions }
   },

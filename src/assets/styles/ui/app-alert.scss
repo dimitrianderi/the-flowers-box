@@ -1,0 +1,15 @@
+.alert {
+  width: 100%;
+  padding: 10px;
+
+  &__wrapper {
+    background-color: $green;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px;
+  }
+
+  &-text {
+    @include text($black, 18px, Calibri, 400)
+  }
+}
