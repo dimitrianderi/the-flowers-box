@@ -5,6 +5,7 @@
   &__container {
     @include flex(column);
     padding: 30px;
+    padding-top: 10px;
 
     @media screen and (max-width: 767.9px) {
       padding: 20px;

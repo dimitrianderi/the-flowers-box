@@ -2,7 +2,7 @@
   <div
     class="menu"
     :class="{
-      active: isScrolled || $route.path === '/auth' || $route.path === '/reg',
+      active: isScrolled || $route.path === '/auth' || $route.path === '/reg' || $route.meta.isError,
     }"
   >
     <div class="container">

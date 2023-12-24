@@ -1,4 +1,5 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router"
+import { useAuthStore } from '@/stores/AuthStore'
 
 const routes = [
     {
@@ -6,7 +7,7 @@ const routes = [
         name: 'Main',
         component: () => import('@/views/Main.vue'),
         meta: {
-            layout: 'main'
+            layout: 'main',
         }
     },
     {
@@ -14,7 +15,9 @@ const routes = [
         name: 'Auth',
         component: () => import('@/views/Auth.vue'),
         meta: {
-            layout: 'main'
+            layout: 'main',
+            authReg: true
+
         }
     },
     {
@@ -22,7 +25,8 @@ const routes = [
         name: 'Reg',
         component: () => import('@/views/Reg.vue'),
         meta: {
-            layout: 'main'
+            layout: 'main',
+            authReg: true
         }
     },
     {
@@ -30,7 +34,8 @@ const routes = [
         name: 'Builder',
         component: () => import('@/views/Builder.vue'),
         meta: {
-            layout: 'content'
+            layout: 'content',
+            auth: true
         }
     },
     {
@@ -67,6 +72,15 @@ const routes = [
             },
         ]
     },
+    {
+        path: '/:CatchAll(.*)',
+        name: '404',
+        component: () => import('@/views/404.vue'),
+        meta: {
+            layout: 'main',
+            isError: true
+        }
+    },
 ]
 
 const router = createRouter({
@@ -78,6 +92,22 @@ const router = createRouter({
         window.scrollTo({
             top: 0,
         });
+    }
+})
+
+router.beforeEach((to, from, next) => {
+    const authStore = useAuthStore()
+    const isMustAuth = to.meta.auth
+    const isAuthReg = to.meta.authReg
+
+    if (isMustAuth && authStore.isAuth) {
+        next()
+    } else if (isMustAuth && !authStore.isAuth) {
+        next('auth')
+    } else if (isAuthReg && authStore.isAuth) {
+        next(from.path)
+    } else {
+        next()
     }
 })
 

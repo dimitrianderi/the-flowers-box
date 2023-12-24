@@ -1,7 +1,7 @@
 .faq-section {
   @include flex(column, flex-start);
   padding: 50px;
-
+  padding-top: 20px;
   
   @media screen and (max-width: 1199.9px) {
     padding: 40px;

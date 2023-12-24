@@ -1,0 +1,26 @@
+.error404 {
+  @include flex(row, center, center);
+  width: 100%;
+  height: 100vh;
+  background-image: url($builderImg);
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  &-text {
+    @include text($black, 72px, $fashion, 700);
+
+    @media screen and (max-width: 1199.9px) {
+      font-size: 56px;
+    }
+
+    @media screen and (max-width: 767.9px) {
+      font-size: 48px;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      font-size: 32px;
+    }
+  }
+}

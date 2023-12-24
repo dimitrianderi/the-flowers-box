@@ -1,0 +1,62 @@
+.builder {
+  @include flex(column, flex-start, space-between);
+  padding: 50px;
+  padding-top: 20px;
+  width: 100%;
+
+  &__title {
+    @include text($black, 72px, $fashion, 700);
+
+    @media screen and (max-width: 767.9px) {
+      font-size: 56px;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      font-size: 42px;
+    }
+  }
+
+  &__description {
+    @include text($black, 26px, Calibri, 500, _, +5px);
+
+    @media screen and (max-width: 1199.9px) {
+      font-size: 24px;
+    }
+
+    @media screen and (max-width: 767.9px) {
+      font-size: 22px;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      font-size: 20px;
+      letter-spacing: +2px;
+    }
+  }
+
+  &__wrapper {
+    @include flex(row, space-between, flex-start);
+    margin-top: 50px;
+    width: 100%;
+    gap: 100px;
+  }
+
+  &__stages {
+    @include flex(column, flex-start, flex-start);
+    width: 70%;
+    gap: 20px;
+
+    &__content {
+      padding: 10px;
+      padding-top: 0;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__res {
+    width: 30%;
+  }
+}
