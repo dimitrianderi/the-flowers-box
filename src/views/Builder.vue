@@ -20,8 +20,10 @@
               :price="flower.price"
               :isInput="true"
               :isPrice="true"
-            ></app-collection>
-          </div>
+              :active="flowersArr"
+              @addData="addFlower"
+              ></app-collection>
+            </div>
         </app-accordion>
         <app-accordion id="greeneries" :idx="1" title="Choose the greeneries">
           <app-alert
@@ -36,6 +38,8 @@
               :title="greenery.title"
               :price="greenery.price"
               :isPrice="true"
+              :active="greeneriesArr"
+              @addData="addGreenery"
             ></app-collection>
           </div>
         </app-accordion>
@@ -49,6 +53,8 @@
               :title="packaging.title"
               :price="packaging.price"
               :isPrice="true"
+              :active="packagingsArr"
+              @addData="addPackaging"
             ></app-collection>
           </div>
         </app-accordion>
@@ -69,14 +75,12 @@
               :title="composition.title"
               :price="composition.price"
               :isPrice="false"
+              :active="compositionsArr"
+              @addData="addComposition"
             ></app-collection>
           </div>
         </app-accordion>
-        <app-accordion
-          id="types"
-          :idx="4"
-          title="Choose the type of bouquet"
-        >
+        <app-accordion id="types" :idx="4" title="Choose the type of bouquet">
           <div class="builder__stages__content">
             <app-collection
               v-for="typeBouquet in types"
@@ -85,6 +89,8 @@
               textBtn="select"
               :title="typeBouquet.title"
               :isPrice="false"
+              :active="typesArr"
+              @addData="addType"
             ></app-collection>
           </div>
         </app-accordion>
@@ -105,14 +111,60 @@ import {
   greeneries,
   packagings,
   compositions,
-  types
+  types,
 } from '@/config/data/flowers'
-import AppInfo from '../components/ui/AppInfo.vue'
+import AppInfo from '@/components/ui/AppInfo.vue'
+import { useBuilderStore } from '@/stores/BuilderStore'
+import { computed } from 'vue'
 
 export default {
   components: { AppAccordion, AppCollection, AppAlert, AppInfo },
   setup() {
-    return { flowers, greeneries, packagings, compositions, types }
+    const buildStore = useBuilderStore()
+
+    const addFlower = (data) => {
+      buildStore.addFlower({ ...data })
+    }
+
+    const addGreenery = (data) => {
+      buildStore.addGreenery({ ...data })
+    }
+
+    const addPackaging = (data) => {
+      buildStore.addPackaging({ ...data })
+    }
+
+    const addComposition = (data) => {
+      buildStore.addComposition({ ...data })
+    }
+
+    const addType = (data) => {
+      buildStore.addType({ ...data })
+    }
+
+    const flowersArr = computed(() => buildStore.getFlowers)
+    const greeneriesArr = computed(() => buildStore.getGreeneries)
+    const packagingsArr = computed(() => buildStore.getPackagings)
+    const compositionsArr = computed(() => buildStore.getCompositions)
+    const typesArr = computed(() => buildStore.getTypes)
+
+    return {
+      flowers,
+      greeneries,
+      packagings,
+      compositions,
+      types,
+      addFlower,
+      addGreenery,
+      addPackaging,
+      addComposition,
+      addType,
+      typesArr,
+      flowersArr,
+      compositionsArr,
+      packagingsArr,
+      greeneriesArr
+    }
   },
 }
 </script>

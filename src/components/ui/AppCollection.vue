@@ -20,12 +20,19 @@
         v-model="amount"
       />
     </div>
-    <button class="collection-btn" @click="addFlower">{{ textBtn }}</button>
+    <button
+      class="collection-btn"
+      @click="handlerClick()"
+      :disabled="isInput && !amount"
+      :class="{ active: active && active.find(obj => obj.title === title) }"
+    >
+      {{ active === title ? textBtn + 'ed' : textBtn }}
+    </button>
   </div>
 </template>
 
 <script>
-import { computed, reactive, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 export default {
   props: {
@@ -35,20 +42,23 @@ export default {
     price: Number,
     isInput: Boolean,
     isPrice: Boolean,
+    active: Object,
   },
+  emits: ['addData'],
 
-  setup(props) {
+  setup(props, context) {
     const amount = ref(null)
     const price = ref(props.price)
     const res = computed(() => (+amount.value * +price.value).toFixed(2))
-    const flower = reactive({})
 
-    const addFlower = () => {
-      flower.name = props.title
-      flower.amount = amount.value
-      flower.price = res.value
-
-      console.log(flower)
+    const handlerClick = () => {
+      context.emit('addData', {
+        title: props.title,
+        price: price.value,
+        amount: amount.value,
+        res: res.value,
+      })
+      amount.value = ''
     }
 
     watch(amount, (newValue) => {
@@ -60,7 +70,7 @@ export default {
       amount,
       price,
       res,
-      addFlower,
+      handlerClick,
     }
   },
 }
