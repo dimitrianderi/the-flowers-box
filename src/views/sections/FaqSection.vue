@@ -9,9 +9,9 @@
         :idx = "(questions[topic].idx === true) ? idx : null"
         :title="question.title"
       >
-        <div class="faq-section__content">
+        <article class="faq-section__content">
           {{ question.text }}
-        </div>
+        </article>
       </app-accordion>
     </div>
   </section>

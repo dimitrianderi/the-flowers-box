@@ -34,7 +34,7 @@
     }
 
     &:checked ~ .accordion__content {
-      max-height: 1000px;
+      max-height: 2000px;
       will-change: transform;
       transition: all 1s ease;
     }

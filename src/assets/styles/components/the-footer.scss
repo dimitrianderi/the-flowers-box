@@ -32,7 +32,7 @@
     }
   }
 
-  &__info {
+  &__wrapper {
     @include flex(row, space-between, space-between);
     gap: 50px;
     flex-grow: 1;
@@ -52,69 +52,69 @@
       text-align: center;
     }
   }
-}
 
-.info {
-  @include flex(column, space-between, center);
-  width: calc(50% - 25px);
-
-  @media screen and (max-width: 767.9px) {
-    width: 100%;
-    margin-top: 20px;
-  }
-
-  &-title {
-    @include text($black, 32px, $calama, 700);
-    letter-spacing: +3px;
-    
-    @media screen and (min-width: 480px) and (max-width: 767.9px) {
-      font-size: 42px;
-    }
-  }
-
-  &__block {
+  &__info {
     @include flex(column, space-between, center);
-    margin-top: 30px;
-    width: 100%;
-
-    &-link {
-      @include text($black, 24px, 'Calibri', 700);
-      transition: all 0.3s ease;
-      overflow-wrap: break-word;
-
+    width: calc(50% - 25px);
+  
+    @media screen and (max-width: 767.9px) {
+      width: 100%;
+      margin-top: 20px;
+    }
+  
+    &-title {
+      @include text($black, 32px, $calama, 700);
+      letter-spacing: +3px;
+      
       @media screen and (min-width: 480px) and (max-width: 767.9px) {
-        font-size: 30px;
-        
+        font-size: 42px;
+      }
+    }
+  
+    &__block {
+      @include flex(column, space-between, center);
+      margin-top: 30px;
+      width: 100%;
+  
+      &-link {
+        @include text($black, 24px, 'Calibri', 700);
+        transition: all 0.3s ease;
+        overflow-wrap: break-word;
+  
+        @media screen and (min-width: 480px) and (max-width: 767.9px) {
+          font-size: 30px;
+          
+          &:hover {
+            font-size: 30px;
+          }
+        }
+  
         &:hover {
+          @include text($gray, 24px, 'Calibri', 700);
+        }
+      }
+  
+      &-text {
+        @include text($black, 24px, 'Calibri', 500);
+        margin-top: 30px;
+  
+        @media screen and (min-width: 480px) and (max-width: 767.9px) {
           font-size: 30px;
         }
       }
-
-      &:hover {
-        @include text($gray, 24px, 'Calibri', 700);
+  
+      &.row {
+        @include flex(row, center);
+        flex-wrap: wrap;
+      }
+  
+      &__icons {
+        margin-top: 25px;
+  
+        @media screen and (max-width: 479.9px) {
+          margin-top: 30px;
+        }
       }
     }
-
-    &-text {
-      @include text($black, 24px, 'Calibri', 500);
-      margin-top: 30px;
-
-      @media screen and (min-width: 480px) and (max-width: 767.9px) {
-        font-size: 30px;
-      }
-    }
-
-    &.row {
-      @include flex(row, center);
-      flex-wrap: wrap;
-    }
-
-    &__icons {
-      margin-top: 25px;
-
-      @media screen and (max-width: 479.9px) {
-        margin-top: 30px;
-      }
-    }
-  }
+  }  
 }

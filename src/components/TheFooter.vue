@@ -11,22 +11,22 @@
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-      <div class="footer__info">
-        <div class="info">
-          <span class="info-title">STORE ADDRESS</span>
-          <div class="info__block">
+      <div class="footer__wrapper">
+        <div class="footer__info">
+          <span class="footer__info-title">STORE ADDRESS</span>
+          <div class="footer__info__block">
             <span
-              class="info__block-text"
+              class="footer__info__block-text"
               v-for="address in fullAddress"
               :key="address"
               >{{ address }}</span
             >
           </div>
         </div>
-        <div class="info">
-          <span class="info-title">CONTACTS</span>
-          <div class="info__block">
-            <div class="info__block__icons">
+        <div class="footer__info">
+          <span class="footer__info-title">CONTACTS</span>
+          <div class="footer__info__block">
+            <div class="footer__info__block__icons">
               <app-link-icon
                 v-for="(icon, idx) in icons"
                 :key="idx"
@@ -36,11 +36,11 @@
               ></app-link-icon>
             </div>
             <span
-              class="info__block-text"
+              class="footer__info__block-text"
               v-for="contact in contacts"
               :key="contact.title"
             >
-              <a class="info__block-link" :href="contact.href">
+              <a class="footer__info__block-link" :href="contact.href">
                 {{ contact.title }}
               </a>
             </span>

@@ -18,7 +18,7 @@ import { ref } from 'vue'
 export default {
   props: {
     idx: {
-      type: String,
+      type: Number,
       default: null,
     },
     id: String,

@@ -56,7 +56,9 @@
     }
   }
 
-  &__res {
+  &__info {
+    position: sticky;
     width: 30%;
+    top: 100px;
   }
 }

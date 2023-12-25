@@ -25,6 +25,48 @@
     @include text($black, 28px, $calama, 100);
   }
 
+  &__controller {
+    @include flex;
+    margin-top: 20px;
+    width: 100%;
+
+    &-text {
+      @include text($black, 18px, Calibri);
+    }
+
+    &-input {
+      @include text($black, 16px, 'Calibri', 700, 20px);
+      color: rgba($black, 0.8);
+      width: 50%;
+      border: none;
+      outline: none;
+      background-color: rgba($gray, 0.2);
+      border-radius: 3px;
+      transition: all 0.1s ease;
+      text-align: center;
+
+      @media screen and (max-width: 1199.9px) {
+        width: 200px;
+        font-size: 18px;
+      }
+
+      @media screen and (max-width: 767.9px) {
+        width: 180px;
+        font-size: 16px;
+      }
+
+      @media screen and (max-width: 479.9px) {
+        width: 160px;
+        font-size: 14px;
+      }
+
+      &:focus {
+        background-color: rgba($gray, 0.1);
+        color: rgba($black, 1);
+      }
+    }
+  }
+
   &-btn {
     @include btn(100%);
     margin-top: 20px;
