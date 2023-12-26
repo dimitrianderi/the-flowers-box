@@ -1,7 +1,12 @@
 import { defineStore } from 'pinia'
 import { computed, reactive, ref, watch } from 'vue'
+import { useOrderStore } from '@/stores/OrderStore'
+import { useAuthStore } from './AuthStore'
 
 export const useBuilderStore = defineStore('builderStore', () => {
+    const authStore = useAuthStore()
+    const orderStore = useOrderStore()
+
     const bouquet = reactive({
         flowers: [],
         greenery: [],
@@ -24,18 +29,36 @@ export const useBuilderStore = defineStore('builderStore', () => {
 
     const costFlowers = computed(() => bouquet.flowers.reduce((total, flower) => total + +flower.res, 0).toFixed(2))
     const costPackagings = computed(() => bouquet.packaging.length ? bouquet.packaging[0].price : 0)
+    const costGreeneries = computed(() => bouquet.greenery.length ? bouquet.greenery[0].price * totalFlowers.value : 0)
     const costComposition = computed(() => bouquet.composition.length ? bouquet.composition[0].price : 1);
-    const getResultCost = computed(() => ((+costFlowers.value + +costPackagings.value) * +costComposition.value).toFixed(2));
+
+    const getResultCost = computed(() => ((+costFlowers.value + +costPackagings.value + +costGreeneries.value) * +costComposition.value).toFixed(2));
 
 
     const addFlower = (data) => {
         bouquet.flowers.push({ ...data })
     }
 
-    const addGreenery = (data) => {
-        bouquet.greenery = [{ title: data.title, price: data.price, amount: totalFlowers.value, res: computed(() => (+totalFlowers.value * data.price).toFixed(2)) }]
+    const cleanBouquet = () => {
+        bouquet.flowers = []
+        bouquet.greenery = []
+        bouquet.packaging = []
+        bouquet.composition = []
+        bouquet.type = []
     }
-    
+
+    const cleanGreenery = () => {
+        bouquet.greenery = []
+    }
+
+    const cleanFlower = (title) => {
+        bouquet.flowers.splice(bouquet.flowers.findIndex(item => item.title === title), 1);
+    }
+
+    const addGreenery = (data) => {
+        bouquet.greenery = [{ title: data.title, price: data.price, amount: computed(() => totalFlowers.value), res: computed(() => (+totalFlowers.value * data.price).toFixed(2)) }]
+    }
+
 
     const addPackaging = (data) => {
         bouquet.packaging = [{ title: data.title, price: data.price }]
@@ -49,8 +72,18 @@ export const useBuilderStore = defineStore('builderStore', () => {
         bouquet.type = [{ title: data.title }]
     }
 
-    const submitHandler = (name) => {
-        console.log(name)
+    const submitHandler = async (name) => {
+        const author = authStore.getUser.split('@')[0];
+
+        bouquet.name = name
+        bouquet.author = author
+        bouquet.price = getResultCost.value
+        bouquet.greenery = [{ ...bouquet.greenery[0], amount: totalFlowers.value, res: +totalFlowers.value * bouquet.greenery[0].price }]
+
+        try {
+            await orderStore.createBouquet(bouquet)
+            cleanBouquet()
+        } catch (e) { }
     }
 
     return {
@@ -65,6 +98,9 @@ export const useBuilderStore = defineStore('builderStore', () => {
         getPackagings,
         getGreeneries,
         getResultCost,
-        submitHandler
+        submitHandler,
+        cleanGreenery,
+        cleanFlower,
+        cleanBouquet,
     }
 })

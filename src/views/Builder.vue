@@ -1,5 +1,8 @@
 <template>
   <section class="container builder">
+    <div class="response">
+      <app-alert :text="response" v-if="response.length"></app-alert>
+    </div>
     <h2 class="builder__title">Builder</h2>
     <div class="builder__description">
       follow the steps and create own bouquet!
@@ -22,8 +25,8 @@
               :isPrice="true"
               :active="flowersArr"
               @addData="addFlower"
-              ></app-collection>
-            </div>
+            ></app-collection>
+          </div>
         </app-accordion>
         <app-accordion id="greeneries" :idx="1" title="Choose the greeneries">
           <app-alert
@@ -115,12 +118,16 @@ import {
 } from '@/config/data/flowers'
 import AppInfo from '@/components/ui/AppInfo.vue'
 import { useBuilderStore } from '@/stores/BuilderStore'
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
+import { useResponseStore } from '../stores/ResponseAuth'
 
 export default {
   components: { AppAccordion, AppCollection, AppAlert, AppInfo },
+
   setup() {
     const buildStore = useBuilderStore()
+    const responseStore = useResponseStore()
+    const isResponse = ref(false)
 
     const addFlower = (data) => {
       buildStore.addFlower({ ...data })
@@ -141,6 +148,8 @@ export default {
     const addType = (data) => {
       buildStore.addType({ ...data })
     }
+
+    const response = computed(() => responseStore.getResponse)
 
     const flowersArr = computed(() => buildStore.getFlowers)
     const greeneriesArr = computed(() => buildStore.getGreeneries)
@@ -163,7 +172,9 @@ export default {
       flowersArr,
       compositionsArr,
       packagingsArr,
-      greeneriesArr
+      greeneriesArr,
+      isResponse,
+      response,
     }
   },
 }

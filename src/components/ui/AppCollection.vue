@@ -24,9 +24,9 @@
       class="collection-btn"
       @click="handlerClick()"
       :disabled="isInput && !amount"
-      :class="{ active: active && active.find(obj => obj.title === title) }"
+      :class="{ active: isActive }"
     >
-      {{ active === title ? textBtn + 'ed' : textBtn }}
+      {{ isActive ? textBtn + 'ed' : textBtn }}
     </button>
   </div>
 </template>
@@ -51,6 +51,8 @@ export default {
     const price = ref(props.price)
     const res = computed(() => (+amount.value * +price.value).toFixed(2))
 
+    const isActive = computed(() => props.active && props.active.find(obj => obj.title === props.title))
+
     const handlerClick = () => {
       context.emit('addData', {
         title: props.title,
@@ -71,6 +73,7 @@ export default {
       price,
       res,
       handlerClick,
+      isActive
     }
   },
 }

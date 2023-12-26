@@ -6,6 +6,7 @@ import {
     faChevronRight,
     faRightFromBracket,
     faRightToBracket,
+    faTrash,
     faUser
 } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faInstagram, faXTwitter } from '@fortawesome/free-brands-svg-icons'
@@ -21,7 +22,8 @@ library.add(
     faInstagram,
     faFacebook,
     faRightFromBracket,
-    faBell
+    faBell,
+    faTrash
 );
 
 export default FontAwesomeIcon

@@ -3,7 +3,6 @@
     <font-awesome-icon
       class="link-icon"
       :icon="iconClass"
-      :title="title"
       :class="{ dark: isDark }"
   /></a>
 </template>

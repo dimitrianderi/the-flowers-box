@@ -13,6 +13,11 @@
       >
         <span>{{ flower.title }}, {{ flower.amount }} pcs.</span
         ><span>{{ flower.res }}&#36;</span>
+        <app-link-icon
+          class="info__block__content-icon"
+          iconClass="fa-solid fa-trash"
+          @click="deleteFlower(flower.title)"
+        ></app-link-icon>
       </div>
       <div
         class="info__block__content"
@@ -21,6 +26,11 @@
       >
         <span>{{ greenery.title }}, {{ greenery.amount }} pcs.</span
         ><span>{{ greenery.res }}&#36;</span>
+        <app-link-icon
+          class="info__block__content-icon"
+          iconClass="fa-solid fa-trash"
+          @click="deleteGreenery"
+        ></app-link-icon>
       </div>
     </div>
     <div class="info__block" v-if="packagings.length">
@@ -64,7 +74,7 @@
         />
       </div>
     </div>
-    <button type="submit" class="info-btn" :disabled="!isValidate">
+    <button type="submit" class="info-btn" :disabled="!isValidate || isSubmitting">
       Compile
     </button>
   </form>
@@ -73,10 +83,15 @@
 <script>
 import { computed, ref } from 'vue'
 import { useBuilderStore } from '@/stores/BuilderStore'
+import { useForm } from 'vee-validate'
+import AppLinkIcon from '@/components/ui/AppLinkIcon.vue'
 
 export default {
+  components: { AppLinkIcon },
   setup() {
+    const { isSubmitting } = useForm()
     const buildStore = useBuilderStore()
+    
     const name = ref('')
 
     const types = computed(() => buildStore.getTypes)
@@ -87,8 +102,11 @@ export default {
 
     const resultCost = computed(() => buildStore.getResultCost)
 
-    const submitHandler = () => {
-      buildStore.submitHandler(name.value)
+    const submitHandler = async () => {
+      try {
+        await buildStore.submitHandler(name.value)
+        name.value = ''
+      } catch (e) {}
     }
 
     const isValidate = computed(
@@ -100,6 +118,14 @@ export default {
         packagings.value.length
     )
 
+    const deleteGreenery = () => {
+      buildStore.cleanGreenery()
+    }
+
+    const deleteFlower = (title) => {
+      buildStore.cleanFlower(title)
+    }
+
     return {
       types,
       flowers,
@@ -108,8 +134,11 @@ export default {
       greeneries,
       resultCost,
       name,
-      submitHandler,
       isValidate,
+      isSubmitting,
+      submitHandler,
+      deleteGreenery,
+      deleteFlower,
     }
   },
 }

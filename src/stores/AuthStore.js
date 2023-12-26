@@ -1,18 +1,20 @@
 import axios from '@/axios/request'
 import { defineStore } from 'pinia'
 import { ref, computed, watch } from 'vue'
-import { API_REG, API_AUTH } from '@/env'
+import { API_REG, API_AUTH } from '@/api'
 import { errors } from '@/utils/errors'
 import { useRouter } from 'vue-router'
+import { useBuilderStore } from './BuilderStore'
 const TOKEN_KEY = 'token'
 const USER = 'user'
+
 
 export const useAuthStore = defineStore('authStore', () => {
     const token = ref(localStorage.getItem(TOKEN_KEY))
     const user = ref(localStorage.getItem(USER))
     const errAuth = ref('')
     const router = useRouter()
-
+    const builderStore = useBuilderStore()
     const getToken = computed(() => token.value)
     const getUser = computed(() => user.value)
     const isAuth = computed(() => !!token.value)
@@ -28,6 +30,7 @@ export const useAuthStore = defineStore('authStore', () => {
             const { data } = await axios.post(API_AUTH, { ...payload, returnSecureToken: true })
             setToken(data.idToken)
             setEmail(data.email)
+            console.log(getToken.value)
         } catch (err) {
             setErrAuth(errors(err.response.data.error.message))
             throw new Error()
@@ -35,9 +38,10 @@ export const useAuthStore = defineStore('authStore', () => {
     }
 
     const logout = () => {
+        router.push('/auth')
         token.value = null
         user.value = null
-        router.push('/auth')
+        builderStore.cleanBouquet()
         // filterStore.clearFilters()
         // requestStore.delBooks()
     }
@@ -63,6 +67,6 @@ export const useAuthStore = defineStore('authStore', () => {
         login,
         logout,
         reg,
-        clearErrAuth
+        clearErrAuth,
     }
 })
