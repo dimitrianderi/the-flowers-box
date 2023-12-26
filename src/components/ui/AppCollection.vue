@@ -16,6 +16,7 @@
         class="collection__controller-input"
         :id="title"
         max="100"
+        step="1"
         min="1"
         v-model="amount"
       />
@@ -66,6 +67,7 @@ export default {
     watch(amount, (newValue) => {
       amount.value = newValue > 100 ? 100 : amount.value
       amount.value = newValue < 1 && newValue !== '' ? 1 : amount.value
+      amount.value = newValue !== (Math.trunc(newValue) || '') ? Math.trunc(newValue) : newValue
     })
 
     return {
