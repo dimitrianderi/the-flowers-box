@@ -74,7 +74,12 @@
         />
       </div>
     </div>
-    <button type="submit" class="info-btn" :disabled="!isValidate || isSubmitting">
+    <button
+      id="name"
+      type="submit"
+      class="info-btn"
+      :disabled="!isValidate || isSubmitting"
+    >
       Compile
     </button>
   </form>
@@ -83,16 +88,15 @@
 <script>
 import { computed, ref } from 'vue'
 import { useBuilderStore } from '@/stores/BuilderStore'
-import { useForm } from 'vee-validate'
 import AppLinkIcon from '@/components/ui/AppLinkIcon.vue'
 
 export default {
   components: { AppLinkIcon },
   setup() {
-    const { isSubmitting } = useForm()
     const buildStore = useBuilderStore()
-    
+
     const name = ref('')
+    const isSubmitting = ref(false)
 
     const types = computed(() => buildStore.getTypes)
     const flowers = computed(() => buildStore.getFlowers)
@@ -104,14 +108,18 @@ export default {
 
     const submitHandler = async () => {
       try {
+        isSubmitting.value = true
         await buildStore.submitHandler(name.value)
         name.value = ''
-      } catch (e) {}
+      } catch (e) {
+      } finally {
+        isSubmitting.value = false
+      }
     }
 
     const isValidate = computed(
       () =>
-        name.value.trim().length &&
+        name.value.trim() &&
         types.value.length &&
         flowers.value.length &&
         compositions.value.length &&
@@ -135,10 +143,10 @@ export default {
       resultCost,
       name,
       isValidate,
-      isSubmitting,
       submitHandler,
       deleteGreenery,
       deleteFlower,
+      isSubmitting
     }
   },
 }
