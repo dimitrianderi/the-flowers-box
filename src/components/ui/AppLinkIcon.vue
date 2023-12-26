@@ -3,7 +3,7 @@
     <font-awesome-icon
       class="link-icon"
       :icon="iconClass"
-      :class="{ dark: isDark }"
+      :class="{ dark: isDark, disabled: disabled }"
   /></a>
 </template>
 
@@ -14,6 +14,7 @@ export default {
     iconClass: String,
     title: String,
     isDark: Boolean,
+    disabled: Boolean
   },
 }
 </script>

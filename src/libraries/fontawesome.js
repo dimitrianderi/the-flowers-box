@@ -2,8 +2,14 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import {
     faAddressCard,
+    faAnglesLeft,
+    faAnglesRight,
+    faBackward,
+    faBackwardFast,
     faChevronLeft,
     faChevronRight,
+    faForward,
+    faForwardFast,
     faRightFromBracket,
     faRightToBracket,
     faTrash,
@@ -23,7 +29,11 @@ library.add(
     faFacebook,
     faRightFromBracket,
     faBell,
-    faTrash
+    faTrash,
+    faBackward,
+    faForward,
+    faBackwardFast,
+    faForwardFast
 );
 
 export default FontAwesomeIcon

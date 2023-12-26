@@ -2,6 +2,11 @@
   &-icon {
     @include icon($black, $white);
 
+    &.disabled {
+      pointer-events: none;
+      color: $gray;
+    }
+
     &.dark {
       @include icon;
     }

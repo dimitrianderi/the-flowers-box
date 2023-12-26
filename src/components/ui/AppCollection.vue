@@ -1,7 +1,7 @@
 <template>
   <div class="collection">
     <div class="collection-img">
-      <img :src="`src/assets/img/${collection}/${title}.jpg`" />
+      <img :src="`src/assets/img/${collection}/${url}.jpg`" />
     </div>
     <div class="collection-title">
       {{ title }}
@@ -44,6 +44,7 @@ export default {
     isInput: Boolean,
     isPrice: Boolean,
     active: Object,
+    url: String
   },
   emits: ['addData'],
 

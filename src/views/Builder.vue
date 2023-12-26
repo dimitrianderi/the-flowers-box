@@ -24,6 +24,7 @@
               :isInput="true"
               :isPrice="true"
               :active="flowersArr"
+              :url="flower.title"
               @addData="addFlower"
             ></app-collection>
           </div>
@@ -42,6 +43,7 @@
               :price="greenery.price"
               :isPrice="true"
               :active="greeneriesArr"
+              :url="greenery.title"
               @addData="addGreenery"
             ></app-collection>
           </div>
@@ -57,6 +59,7 @@
               :price="packaging.price"
               :isPrice="true"
               :active="packagingsArr"
+              :url="packaging.title"
               @addData="addPackaging"
             ></app-collection>
           </div>
@@ -79,21 +82,23 @@
               :price="composition.price"
               :isPrice="false"
               :active="compositionsArr"
+              :url="composition.title"
               @addData="addComposition"
             ></app-collection>
           </div>
         </app-accordion>
-        <app-accordion id="types" :idx="4" title="Choose the type of bouquet">
+        <app-accordion id="views" :idx="4" title="Choose the type of bouquet">
           <div class="builder__stages__content">
             <app-collection
-              v-for="typeBouquet in types"
-              :key="typeBouquet"
+              v-for="view in types"
+              :key="view"
               collection="types"
               textBtn="select"
-              :title="typeBouquet.title"
+              :title="view.title"
               :isPrice="false"
-              :active="typesArr"
-              @addData="addType"
+              :active="views"
+              :url="view.title"
+              @addData="addView"
             ></app-collection>
           </div>
         </app-accordion>
@@ -145,8 +150,8 @@ export default {
       buildStore.addComposition({ ...data })
     }
 
-    const addType = (data) => {
-      buildStore.addType({ ...data })
+    const addView = (data) => {
+      buildStore.addView({ ...data })
     }
 
     const response = computed(() => responseStore.getResponse)
@@ -155,7 +160,7 @@ export default {
     const greeneriesArr = computed(() => buildStore.getGreeneries)
     const packagingsArr = computed(() => buildStore.getPackagings)
     const compositionsArr = computed(() => buildStore.getCompositions)
-    const typesArr = computed(() => buildStore.getTypes)
+    const views = computed(() => buildStore.getViews)
 
     return {
       flowers,
@@ -167,8 +172,8 @@ export default {
       addGreenery,
       addPackaging,
       addComposition,
-      addType,
-      typesArr,
+      addView,
+      views,
       flowersArr,
       compositionsArr,
       packagingsArr,

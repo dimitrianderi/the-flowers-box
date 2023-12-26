@@ -30,6 +30,14 @@ const routes = [
         }
     },
     {
+        path: '/bouquets',
+        name: 'Bouquets',
+        component: () => import('@/views/Bouquets.vue'),
+        meta: {
+            layout: 'content'
+        }
+    },
+    {
         path: '/builder',
         name: 'Builder',
         component: () => import('@/views/Builder.vue'),

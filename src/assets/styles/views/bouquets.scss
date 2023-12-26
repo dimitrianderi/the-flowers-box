@@ -1,0 +1,91 @@
+.bouquets {
+  @include flex(column, flex-start, space-between);
+  padding: 50px;
+  padding-top: 20px;
+  width: 100%;
+
+  @media screen and (max-width: 1199.9px) {
+    padding: 40px;
+  }
+
+  @media screen and (max-width: 767.9px) {
+    padding: 30px;
+  }
+
+  @media screen and (max-width: 479.9px) {
+    padding: 20px;
+  }
+
+  &__title {
+    @include text($black, 72px, $fashion, 700);
+
+    @media screen and (max-width: 767.9px) {
+      font-size: 56px;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      font-size: 42px;
+    }
+  }
+
+  &__description {
+    @include text($black, 26px, Calibri, 500, _, +5px);
+
+    @media screen and (max-width: 1199.9px) {
+      font-size: 24px;
+    }
+
+    @media screen and (max-width: 767.9px) {
+      font-size: 22px;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      font-size: 20px;
+      letter-spacing: +2px;
+    }
+  }
+
+  &__wrapper {
+    @include flex(row, space-between, flex-start);
+    margin-top: 50px;
+    width: 100%;
+    gap: 100px;
+
+    @media screen and (max-width: 1199.9px) {
+      flex-wrap: wrap;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      gap: 30px;
+    }
+  }
+
+  &__shop {
+    @include flex(row, space-between, flex-start);
+    width: 100%;
+    gap: 50px;
+    position: relative;
+
+    &__content {
+      @include flex(column, flex-start, center);
+      width: 100%;
+
+      &-contain {
+        padding: 10px;
+        padding-top: 0;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+    }
+
+    &-panel {
+      width: 100px;
+      border: 1px solid red;
+      height: 100%;
+      padding: 10px
+    };
+  }
+}

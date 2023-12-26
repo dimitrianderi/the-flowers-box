@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { computed, reactive, ref, watch } from 'vue'
 import { useOrderStore } from '@/stores/OrderStore'
-import { useAuthStore } from './AuthStore'
+import { useAuthStore } from '@/stores/AuthStore'
 
 export const useBuilderStore = defineStore('builderStore', () => {
     const authStore = useAuthStore()
@@ -12,14 +12,14 @@ export const useBuilderStore = defineStore('builderStore', () => {
         greenery: [],
         packaging: [],
         composition: [],
-        type: [],
+        view: [],
     })
 
     const getFlowers = computed(() => bouquet.flowers)
     const getGreeneries = computed(() => bouquet.greenery)
     const getPackagings = computed(() => bouquet.packaging)
     const getCompositions = computed(() => bouquet.composition)
-    const getTypes = computed(() => bouquet.type);
+    const getViews = computed(() => bouquet.view);
 
     const totalFlowers = ref(0)
 
@@ -29,7 +29,7 @@ export const useBuilderStore = defineStore('builderStore', () => {
 
     const costFlowers = computed(() => bouquet.flowers.reduce((total, flower) => total + +flower.res, 0).toFixed(2))
     const costPackagings = computed(() => bouquet.packaging.length ? bouquet.packaging[0].price : 0)
-    const costGreeneries = computed(() => bouquet.greenery.length ? bouquet.greenery[0].price * totalFlowers.value : 0)
+    const costGreeneries = computed(() => bouquet.greenery.length ? bouquet.greenery[0].price * +totalFlowers.value : 0)
     const costComposition = computed(() => bouquet.composition.length ? bouquet.composition[0].price : 1);
 
     const getResultCost = computed(() => ((+costFlowers.value + +costPackagings.value + +costGreeneries.value) * +costComposition.value).toFixed(2));
@@ -40,11 +40,12 @@ export const useBuilderStore = defineStore('builderStore', () => {
     }
 
     const cleanBouquet = () => {
-        bouquet.flowers = []
-        bouquet.greenery = []
-        bouquet.packaging = []
-        bouquet.composition = []
-        bouquet.type = []
+        bouquet.flowers.length = 0
+        bouquet.greenery.length = 0
+        bouquet.packaging.length = 0
+        bouquet.composition.length = 0
+        bouquet.view.length = 0
+        totalFlowers.value = 0
     }
 
     const cleanGreenery = () => {
@@ -68,8 +69,8 @@ export const useBuilderStore = defineStore('builderStore', () => {
         bouquet.composition = [{ title: data.title, price: data.price }]
     }
 
-    const addType = (data) => {
-        bouquet.type = [{ title: data.title }]
+    const addView = (data) => {
+        bouquet.view = [{ title: data.title }]
     }
 
     const submitHandler = async (name) => {
@@ -91,8 +92,8 @@ export const useBuilderStore = defineStore('builderStore', () => {
         addGreenery,
         addPackaging,
         addComposition,
-        addType,
-        getTypes,
+        addView,
+        getViews,
         getCompositions,
         getFlowers,
         getPackagings,

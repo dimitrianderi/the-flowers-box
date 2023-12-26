@@ -58,18 +58,18 @@
     <div class="info__advanced">
       <div
         class="info__advanced__content"
-        v-for="typeItem in types"
-        :key="typeItem.title"
+        v-for="view in views"
+        :key="view.title"
       >
         <span>{{ 'Type' }}</span>
-        <span>{{ typeItem.title }}</span>
+        <span>{{ view.title }}</span>
       </div>
       <div class="info__advanced__content">
         <span>{{ 'Name' }}</span>
         <input
           class="info__advanced__content-input"
           type="text"
-          maxlength="30"
+          maxlength="20"
           v-model="name"
         />
       </div>
@@ -98,7 +98,7 @@ export default {
     const name = ref('')
     const isSubmitting = ref(false)
 
-    const types = computed(() => buildStore.getTypes)
+    const views = computed(() => buildStore.getViews)
     const flowers = computed(() => buildStore.getFlowers)
     const compositions = computed(() => buildStore.getCompositions)
     const packagings = computed(() => buildStore.getPackagings)
@@ -120,7 +120,7 @@ export default {
     const isValidate = computed(
       () =>
         name.value.trim() &&
-        types.value.length &&
+        views.value.length &&
         flowers.value.length &&
         compositions.value.length &&
         packagings.value.length
@@ -135,7 +135,7 @@ export default {
     }
 
     return {
-      types,
+      views,
       flowers,
       compositions,
       packagings,
