@@ -4,6 +4,18 @@
   padding-top: 20px;
   width: 100%;
 
+  @media screen and (max-width: 1199.9px) {
+    padding: 40px;
+  }
+
+  @media screen and (max-width: 767.9px) {
+    padding: 30px;
+  }
+
+  @media screen and (max-width: 479.9px) {
+    padding: 20px;
+  }
+
   &__title {
     @include text($black, 72px, $fashion, 700);
 
@@ -38,6 +50,14 @@
     margin-top: 50px;
     width: 100%;
     gap: 100px;
+
+    @media screen and (max-width: 1199.9px) {
+      flex-wrap: wrap;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      gap: 30px;
+    }
   }
 
   &__stages {
@@ -45,14 +65,54 @@
     width: 70%;
     gap: 20px;
 
+    @media screen and (max-width: 1199.9px) {
+      width: 100%;
+    }
+
     &__content {
       padding: 10px;
       padding-top: 0;
       width: 100%;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1rem;
+      gap: 16px;
       flex-wrap: wrap;
+
+      @media screen and (max-width: 1399.9px) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 25px;
+      }
+
+      @media screen and (max-width: 1199.9px) {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 60px;
+      }
+
+      @media screen and (max-width: 967.9px) {
+        gap: 30px;
+      }
+
+      @media screen and (max-width: 899.9px) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 60px;
+      }
+
+      @media screen and (max-width: 767.9px) {
+        gap: 20px;
+      }
+
+      @media screen and (max-width: 599.9px) {
+        gap: 60px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      @media screen and (max-width: 479.9px) {
+        gap: 20px;
+      }
+
+      @media screen and (max-width: 379.9px) {
+        gap: 0px;
+      }
     }
   }
 
@@ -60,5 +120,10 @@
     position: sticky;
     width: 30%;
     top: 100px;
+
+    @media screen and (max-width: 1199.9px) {
+      width: 100%;
+      position: static;
+    }
   }
 }

@@ -12,6 +12,16 @@
   overflow: hidden;
   box-shadow: 1px 5px 10px 1px $gray;
 
+  @media screen and (max-width: 1199.9px) {
+    width: 400px;
+    margin: 0 auto;
+    box-shadow: none;
+  }
+
+  @media screen and (max-width: 479.9px) {
+    width: 100%
+  }
+
   &__title {
     @include flex(row, space-between, center);
     @include text($black, 25px, Calibri, 700);
@@ -31,10 +41,11 @@
       @include text($black, 18px, Calibri, 300);
       width: 100%;
       margin-top: 15px;
+      position: relative;
 
       &-icon {
         position: absolute;
-        right: -5px;
+        right: -35px;
         transform: scale(0.7);
       }
     }

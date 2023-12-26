@@ -61,7 +61,7 @@
         v-for="typeItem in types"
         :key="typeItem.title"
       >
-        <span>{{ 'The type of bouquets' }}</span>
+        <span>{{ 'Type' }}</span>
         <span>{{ typeItem.title }}</span>
       </div>
       <div class="info__advanced__content">
