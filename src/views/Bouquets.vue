@@ -9,7 +9,17 @@
     </div>
     <div class="bouquets__wrapper">
       <div class="bouquets__shop">
-        <div class="bouquets__shop-panel"></div>
+        <div class="bouquets__shop-panel">
+          <button
+            v-for="bouquet in types"
+            :key="bouquet.title"
+            class="bouquets__shop-panel-btn"
+            @click="toggleView(bouquet.title)"
+            :class="{ active: filterStore.getViews.includes(bouquet.title) }"
+          >
+            {{ bouquet.title }}
+          </button>
+        </div>
         <app-loader v-if="isLoad"></app-loader>
         <div class="bouquets__shop__content" v-else>
           <div class="bouquets__shop__content-contain">
@@ -21,7 +31,7 @@
               textBtn="more"
               :price="+bouquet.price"
               :isPrice="true"
-              :url="bouquet.flowers[0].title"
+              url=""
             ></app-collection>
           </div>
           <app-pagination></app-pagination>
@@ -34,11 +44,13 @@
 
 <script>
 import { computed, onMounted, ref } from 'vue'
-import AppCollection from '@/components/ui/AppCollection.vue'
+import { useFilterStore } from '@/stores/FilterStore'
 import { useOrderStore } from '@/stores/OrderStore.js'
+import { types } from '@/config/data/flowers.js'
+import AppCollection from '@/components/ui/AppCollection.vue'
 import AppLoader from '@/components/ui/AppLoader.vue'
 import AppPagination from '@/components/ui/AppPagination.vue'
-import { useFilterStore } from '../stores/FilterStore'
+
 export default {
   components: { AppCollection, AppLoader, AppPagination },
 
@@ -47,6 +59,12 @@ export default {
     const filterStore = useFilterStore()
     const bouquets = computed(() => filterStore.getBouquets)
     const isLoad = ref(false)
+
+    const toggleView = (view) => {
+      filterStore.getViews.includes(view)
+        ? filterStore.delView(view)
+        : filterStore.addView(view)
+    }
 
     onMounted(async () => {
       isLoad.value = true
@@ -57,6 +75,9 @@ export default {
     return {
       bouquets,
       isLoad,
+      types,
+      filterStore,
+      toggleView,
     }
   },
 }

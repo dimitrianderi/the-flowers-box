@@ -5,6 +5,7 @@ import { API_REG, API_AUTH } from '@/api'
 import { errors } from '@/utils/errors'
 import { useRouter } from 'vue-router'
 import { useBuilderStore } from './BuilderStore'
+import { useFilterStore } from './FilterStore'
 const TOKEN_KEY = 'token'
 const USER = 'user'
 
@@ -19,6 +20,7 @@ export const useAuthStore = defineStore('authStore', () => {
     const getUser = computed(() => user.value)
     const isAuth = computed(() => !!token.value)
     const getErrAuth = computed(() => errAuth.value)
+    const filterStore = useFilterStore()
 
     const setToken = (newToken) => token.value = newToken
     const setEmail = (newEmail) => user.value = newEmail
@@ -42,8 +44,7 @@ export const useAuthStore = defineStore('authStore', () => {
         token.value = null
         user.value = null
         builderStore.cleanBouquet()
-        // filterStore.clearFilters()
-        // requestStore.delBooks()
+        filterStore.clearFilters()
     }
 
     const reg = async (payload) => {

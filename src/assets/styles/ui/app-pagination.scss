@@ -18,5 +18,7 @@
 
   &-page {
     @include text($black, 28px, Calibri);
+    width: 50px;
+    text-align: center;
   }
 }

@@ -18,12 +18,14 @@
           />
           <div class="slide__info">
             <h2 class="slide__info-title">{{ slide.title }}</h2>
-            <a
+            <button
               class="slide__info-btn"
+              @click="setView(slide.view)"
               @mouseleave="playInterval"
               @mouseover="stopInterval"
-              >more</a
-            >
+              >
+              more
+            </button>
           </div>
         </div>
       </transition>
@@ -52,10 +54,15 @@
 <script>
 import { onMounted, ref } from 'vue'
 import { slides } from '@/config/the-header.js'
+import { useRouter } from 'vue-router'
+import { useFilterStore } from '../stores/FilterStore'
+
 export default {
   setup() {
     const currentSlide = ref(0)
     const interval = ref(null)
+    const router = useRouter()
+    const filterStore = useFilterStore()
 
     const changeSlide = (slide) => {
       clearInterval(interval.value)
@@ -83,6 +90,12 @@ export default {
       clearInterval(interval.value)
     }
 
+    const setView = (view) => {
+      filterStore.clearFilters()
+      filterStore.addView(view)
+      router.push('/bouquets')
+    }
+
     onMounted(() => {
       playInterval()
     })
@@ -93,6 +106,7 @@ export default {
       changeSlide,
       stopInterval,
       playInterval,
+      setView
     }
   },
 }

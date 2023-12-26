@@ -12,11 +12,13 @@ export const useOrderStore = defineStore('orderStore', () => {
     const getBouquets = computed(() => bouquets.value)
     const setBouquets = (requests) => bouquets.value = requests
 
+    const addBouquet = (bouquet) => bouquets.value.push(bouquet)
+
     const createBouquet = async (payload) => {
         const token = authStore.getToken
         try {
             const { data } = await axios.post(`/flowers.json?auth=${token}`, payload)
-            // addBook({ ...payload, id: data.name })
+            addBouquet({ ...payload, id: data.name })
             responseStore.updateResponse('Bouquet is creating!')
         } catch (err) {
             responseStore.updateResponse('Request error')

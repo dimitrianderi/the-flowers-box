@@ -1,5 +1,5 @@
 export const slides = [
-    { title: 'wedding bouquets' },
-    { title: 'birthday bouquets' },
-    { title: 'festive bouquets' },
+    { title: 'wedding bouquets', view: 'Wedding' },
+    { title: 'birthday bouquets', view: 'Birthday' },
+    { title: 'festive bouquets', view: 'Festive' },
 ]
