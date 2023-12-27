@@ -1,5 +1,5 @@
 export const cards = [
-    { title: 'Designer bouquets' },
-    { title: 'Custom bouquets' },
-    { title: 'My bouquets' },
+    { title: 'Designer bouquets', author: 'Designer' },
+    { title: 'Custom bouquets', author: 'Custom' },
+    { title: 'My bouquets', author: 'My' },
 ]

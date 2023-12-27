@@ -15,7 +15,8 @@
               alt="bouquet"
             />
           </div>
-          <router-link :to="'/faq/' + card.href" class="sections__card-btn">{{ btn }}</router-link>
+          <button class="sections__card-btn" @click="$emit('getData', card[getData])">{{ btn }}</button>
+          <!-- <router-link v-else :to="'/faq/' + card.href" class="sections__card-btn">{{ btn }}</router-link> -->
         </div>
       </div>
       <slot></slot>
@@ -33,7 +34,9 @@ export default {
     btn: String,
     name: String,
     cards: Object,
+    getData: String
   },
+  emits: ['getData'],
 }
 </script>
 

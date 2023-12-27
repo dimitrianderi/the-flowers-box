@@ -37,7 +37,7 @@ export default {
   components: { AppLinkIcon },
   setup() {
     const filterStore = useFilterStore()
-    const page = computed(() => filterStore.currentPage)
+    const page = computed(() => filterStore.getCurrentPage)
 
     return {
       filterStore,

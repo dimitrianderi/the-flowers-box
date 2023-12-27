@@ -50,3 +50,9 @@ export const compositions = [
     { title: 'Pyramid', price: 1.5 },
     { title: 'Spiral', price: 1.7 },
 ]
+
+export const authors = [
+    { title: 'Design' },
+    { title: 'Custom' },
+    { title: 'My' },
+]

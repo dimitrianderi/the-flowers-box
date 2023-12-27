@@ -20,6 +20,7 @@ export default {
     btnText: String,
     isSubmitting: Boolean
   },
+  emits: ['onSubmit']
 }
 </script>
 

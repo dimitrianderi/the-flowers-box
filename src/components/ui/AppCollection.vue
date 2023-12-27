@@ -1,6 +1,6 @@
 <template>
   <div class="collection">
-    <div class="collection-img">
+    <div :class="{'collection-img': true, big: collection === 'bouquets'}">
       <img :src="`src/assets/img/${collection}/${url}.jpg`" />
     </div>
     <div class="collection-title">

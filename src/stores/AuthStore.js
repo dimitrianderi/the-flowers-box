@@ -32,7 +32,6 @@ export const useAuthStore = defineStore('authStore', () => {
             const { data } = await axios.post(API_AUTH, { ...payload, returnSecureToken: true })
             setToken(data.idToken)
             setEmail(data.email)
-            console.log(getToken.value)
         } catch (err) {
             setErrAuth(errors(err.response.data.error.message))
             throw new Error()

@@ -6,6 +6,7 @@
     <h2 class="bouquets__title">Bouquets</h2>
     <div class="bouquets__description">
       here you can order the bouquet you like!
+      {{ bouquets.length }}
     </div>
     <div class="bouquets__wrapper">
       <div class="bouquets__shop">
@@ -21,22 +22,33 @@
           </button>
         </div>
         <app-loader v-if="isLoad"></app-loader>
-        <div class="bouquets__shop__content" v-else>
+        <div class="bouquets__shop__content" v-else-if="bouquets.length">
           <div class="bouquets__shop__content-contain">
             <app-collection
               v-for="bouquet in bouquets"
               :key="bouquet.name"
-              collection="flowers"
+              collection="bouquets"
               :title="bouquet.name"
               textBtn="more"
               :price="+bouquet.price"
               :isPrice="true"
-              url=""
+              :url="getMaxFlowers(bouquet.flowers)"
             ></app-collection>
           </div>
           <app-pagination></app-pagination>
         </div>
-        <div class="bouquets__shop-panel"></div>
+        <span v-else class="bouquets__shop-title">No bouquets available</span>
+        <div class="bouquets__shop-panel">
+          <button
+            v-for="bouquet in authors"
+            :key="bouquet.title"
+            class="bouquets__shop-panel-btn"
+            @click="toggleAuthor(bouquet.title)"
+            :class="{ active: filterStore.getAuthors.includes(bouquet.title) }"
+          >
+            {{ bouquet.title }}
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -46,7 +58,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { useFilterStore } from '@/stores/FilterStore'
 import { useOrderStore } from '@/stores/OrderStore.js'
-import { types } from '@/config/data/flowers.js'
+import { types, authors } from '@/config/data/flowers.js'
 import AppCollection from '@/components/ui/AppCollection.vue'
 import AppLoader from '@/components/ui/AppLoader.vue'
 import AppPagination from '@/components/ui/AppPagination.vue'
@@ -66,6 +78,22 @@ export default {
         : filterStore.addView(view)
     }
 
+    const toggleAuthor = (author) => {
+      filterStore.getAuthors.includes(author)
+        ? filterStore.delAuthor(author)
+        : filterStore.addAuthor(author)
+    }
+
+    const getMaxFlowers = (data) => {
+      const maxFlowers = data.reduce(
+        (maxItem, currentItem) => {
+          return currentItem.amount > maxItem.amount ? currentItem : maxItem
+        },
+        { amount: 0 }
+      )
+      return maxFlowers.title;
+    }
+
     onMounted(async () => {
       isLoad.value = true
       await orderStore.loadBouquets()
@@ -76,8 +104,11 @@ export default {
       bouquets,
       isLoad,
       types,
+      authors,
       filterStore,
       toggleView,
+      toggleAuthor,
+      getMaxFlowers,
     }
   },
 }
