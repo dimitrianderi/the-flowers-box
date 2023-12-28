@@ -8,6 +8,10 @@ export const useFilterStore = defineStore('filterStore', () => {
     const orderStore = useOrderStore()
     const authStore = useAuthStore()
 
+    const search = ref('')
+    const getSearch = computed(() => search.value)
+    const changeSearch = (newValue) => search.value = newValue
+
     const views = ref([])
     const getViews = computed(() => views.value)
 
@@ -27,6 +31,17 @@ export const useFilterStore = defineStore('filterStore', () => {
             .filter((bouquet) => {
                 if (getAuthors.value.length) {
                     return getAuthors.value.includes(getTypeOfAuthor(bouquet.author))
+                }
+                return true
+            })
+            .filter((bouquet) => {
+                if (
+                    getSearch.value &&
+                    getSearch.value.length
+                ) {
+                    return bouquet.name
+                        .toLowerCase()
+                        .includes(getSearch.value.toLowerCase())
                 }
                 return true
             })
@@ -99,6 +114,8 @@ export const useFilterStore = defineStore('filterStore', () => {
         addView,
         delView,
         getCurrentPage,
-        clearFilters
+        clearFilters,
+        getSearch,
+        changeSearch
     }
 })

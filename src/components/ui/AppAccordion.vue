@@ -30,7 +30,7 @@ export default {
 
     if (props.idx !== null) {
       idx.value = +props.idx + 1
-      idx.value = idx.value > 9 ? idx.value : '0' + idx.value
+      idx.value = +idx.value > 9 ? idx.value : '0' + idx.value
     }
 
     return { idx }

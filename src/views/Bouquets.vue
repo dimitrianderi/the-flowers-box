@@ -1,14 +1,19 @@
 <template>
   <section class="container bouquets">
-    <!-- <div class="response">
-      <app-alert :text="response" v-if="response.length"></app-alert>
-    </div> -->
     <h2 class="bouquets__title">Bouquets</h2>
     <div class="bouquets__description">
       here you can order the bouquet you like!
-      {{ bouquets.length }}
     </div>
     <div class="bouquets__wrapper">
+      <div class="bouquets__wrapper__search">
+        <input
+          class="bouquets__wrapper__search-input"
+          type="text"
+          placeholder="search..."
+          :value="searchValue"
+          @input="changeSearch"
+        />
+      </div>
       <div class="bouquets__shop">
         <div class="bouquets__shop-panel">
           <button
@@ -91,7 +96,13 @@ export default {
         },
         { amount: 0 }
       )
-      return maxFlowers.title;
+      return maxFlowers.title
+    }
+
+    const searchValue = computed(() => filterStore.getSearch)
+
+    const changeSearch = (e) => {
+      filterStore.changeSearch(e.target.value)
     }
 
     onMounted(async () => {
@@ -109,6 +120,8 @@ export default {
       toggleView,
       toggleAuthor,
       getMaxFlowers,
+      changeSearch,
+      searchValue
     }
   },
 }

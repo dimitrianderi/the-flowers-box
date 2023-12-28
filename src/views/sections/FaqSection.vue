@@ -5,7 +5,7 @@
       <app-accordion
         v-for="(question, idx) in questions[topic].items"
         :key="question"
-        :id="idx"
+        :id="String(idx)"
         :idx = "(questions[topic].idx === true) ? idx : null"
         :title="question.title"
       >
