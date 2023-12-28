@@ -10,17 +10,22 @@
         </router-link>
       </li>
     </ul>
+    <span class="breadcrumb__user">Hi, {{ user }}!</span>
   </div>
 </template>
 
 <script>
 import { onMounted, ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
+import { useAuthStore } from '../../stores/AuthStore'
 
 export default {
   setup() {
     const route = useRoute()
     const routes = ref([])
+    const authStore = useAuthStore()
+
+    const user = authStore.getUser.split('@')[0];
 
     const getRoutes = () => {
       routes.value = route.matched
@@ -36,6 +41,7 @@ export default {
 
     return {
       routes,
+      user
     }
   },
 }

@@ -1,5 +1,6 @@
 <template>
   <div class="collection">
+    <slot></slot>
     <div :class="{'collection-img': true, big: collection === 'bouquets'}">
       <img :src="`src/assets/img/${collection}/${url}.jpg`" />
     </div>

@@ -38,10 +38,13 @@
               :price="+bouquet.price"
               :isPrice="true"
               :url="getMaxFlowers(bouquet.flowers)"
-            ></app-collection>
+              @click="onModal(bouquet)"
+            >
+            </app-collection>
           </div>
           <app-pagination></app-pagination>
         </div>
+
         <span v-else class="bouquets__shop-title">No bouquets available</span>
         <div class="bouquets__shop-panel">
           <button
@@ -57,25 +60,34 @@
       </div>
     </div>
   </section>
+  <app-modal @offModal="offModal()" v-if="isModal">
+    <app-resume :bouquet="bouquetData"></app-resume>
+  </app-modal>
 </template>
 
 <script>
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, reactive, ref } from 'vue'
 import { useFilterStore } from '@/stores/FilterStore'
 import { useOrderStore } from '@/stores/OrderStore.js'
 import { types, authors } from '@/config/data/flowers.js'
 import AppCollection from '@/components/ui/AppCollection.vue'
 import AppLoader from '@/components/ui/AppLoader.vue'
 import AppPagination from '@/components/ui/AppPagination.vue'
+import AppModal from '@/components/ui/AppModal.vue'
+import AppInfo from '@/components/ui/AppInfo.vue'
+import AppResume from '@/components/ui/AppResume.vue'
 
 export default {
-  components: { AppCollection, AppLoader, AppPagination },
+  components: { AppCollection, AppLoader, AppPagination, AppModal, AppInfo, AppResume },
 
   setup() {
     const orderStore = useOrderStore()
     const filterStore = useFilterStore()
     const bouquets = computed(() => filterStore.getBouquets)
     const isLoad = ref(false)
+    const isModal = ref(false)
+
+    const bouquetData = reactive({})
 
     const toggleView = (view) => {
       filterStore.getViews.includes(view)
@@ -105,6 +117,16 @@ export default {
       filterStore.changeSearch(e.target.value)
     }
 
+    const offModal = () => {
+      isModal.value = false
+    }
+
+    const onModal = (bouquet) => {
+      isModal.value = true
+      console.log(bouquet)
+      Object.assign(bouquetData, bouquet);
+    }
+
     onMounted(async () => {
       isLoad.value = true
       await orderStore.loadBouquets()
@@ -121,7 +143,11 @@ export default {
       toggleAuthor,
       getMaxFlowers,
       changeSearch,
-      searchValue
+      onModal,
+      offModal,
+      searchValue,
+      isModal,
+      bouquetData
     }
   },
 }

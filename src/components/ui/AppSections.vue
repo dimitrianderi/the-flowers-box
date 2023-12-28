@@ -16,7 +16,6 @@
             />
           </div>
           <button class="sections__card-btn" @click="$emit('getData', card[getData])">{{ btn }}</button>
-          <!-- <router-link v-else :to="'/faq/' + card.href" class="sections__card-btn">{{ btn }}</router-link> -->
         </div>
       </div>
       <slot></slot>
