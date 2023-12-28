@@ -1,0 +1,120 @@
+.footer {
+  @include flex(column, space-between, center);
+  width: 100%;
+  background-color: $pink;
+  background-image: url($background);
+  object-fit: cover;
+  background-size: cover;
+  background-attachment: fixed;
+  margin-top: auto;
+  
+  &__container {
+    margin-top: 50px;
+    height: 100%;
+    gap: 50px;
+    padding: 0 20px;
+    flex-wrap: wrap;
+  }
+
+  &__map {
+    overflow: hidden;
+    align-self: stretch;
+    flex-grow: 1;
+
+    @media screen and (max-width: 1199.9px) {
+      width: 100%;
+      height: 250px;
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__wrapper {
+    @include flex(row, space-between, space-between);
+    gap: 50px;
+    flex-grow: 1;
+    flex-wrap: wrap;
+  }
+
+  &__copyright {
+    @include flex;
+    margin-top: 50px;
+    width: 100%;
+    height: 50px;
+    background-color: $black;
+
+    &-title {
+      @include text($white, 22px, $calama, 500, 20px, +1px);
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__info {
+    @include flex(column, space-between, center);
+    width: calc(50% - 25px);
+  
+    @media screen and (max-width: 767.9px) {
+      width: 100%;
+      margin-top: 20px;
+    }
+  
+    &-title {
+      @include text($black, 32px, $calama, 700);
+      letter-spacing: +3px;
+      
+      @media screen and (min-width: 480px) and (max-width: 767.9px) {
+        font-size: 42px;
+      }
+    }
+  
+    &__block {
+      @include flex(column, space-between, center);
+      margin-top: 30px;
+      width: 100%;
+  
+      &-link {
+        @include text($black, 24px, 'Calibri', 700);
+        transition: all 0.3s ease;
+        overflow-wrap: break-word;
+  
+        @media screen and (min-width: 480px) and (max-width: 767.9px) {
+          font-size: 30px;
+          
+          &:hover {
+            font-size: 30px;
+          }
+        }
+  
+        &:hover {
+          @include text($gray, 24px, 'Calibri', 700);
+        }
+      }
+  
+      &-text {
+        @include text($black, 24px, 'Calibri', 500);
+        margin-top: 30px;
+  
+        @media screen and (min-width: 480px) and (max-width: 767.9px) {
+          font-size: 30px;
+        }
+      }
+  
+      &.row {
+        @include flex(row, center);
+        flex-wrap: wrap;
+      }
+  
+      &__icons {
+        margin-top: 25px;
+  
+        @media screen and (max-width: 479.9px) {
+          margin-top: 30px;
+        }
+      }
+    }
+  }  
+}

@@ -1,0 +1,82 @@
+.formControl {
+  @include flex(row, space-between, center);
+  height: 30px;
+  margin-top: 20px;
+  width: 100%;
+  gap: 15px;
+
+  @media screen and (max-width: 1199.9px) {
+    margin-top: 17px;
+    height: 28px;
+  }
+
+  @media screen and (max-width: 767.9px) {
+    margin-top: 15px;
+    height: 25px;
+  }
+
+  @media screen and (max-width: 479.9px) {
+    margin-top: 12px;
+    height: 25px;
+  }
+
+  &__label {
+    @include flex(row, space-between, center);
+    @include text($black, 32px, $calama, 700, 30px, +1px);
+    padding-bottom: 3px;
+    text-align: center;
+
+    @media screen and (max-width: 1199.9px) {
+      font-size: 30px;
+    }
+
+    @media screen and (max-width: 767.9px) {
+      font-size: 28px;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      font-size: 26px;
+    }
+  }
+
+  &__input {
+    @include text($black, 20px, 'Calibri', 700, 20px);
+    color: rgba($black, 0.8);
+    border: none;
+    outline: none;
+    padding: 5px;
+    background-color: rgba($pink, 0.7);
+    border-radius: 3px;
+    height: 100%;
+    transition: all 0.05s ease;
+
+    @media screen and (max-width: 1199.9px) {
+      width: 200px;
+      font-size: 18px;
+    }
+
+    @media screen and (max-width: 767.9px) {
+      width: 180px;
+      font-size: 16px;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      width: 160px;
+      font-size: 14px;
+    }
+
+    &:focus {
+      background-color: rgba($white, 1);
+      color: rgba($black, 1);
+    }
+  }
+
+  &__errorText {
+    padding: 2px;
+    margin-top: 2px;
+    width: 100%;
+    height: 15px;
+    color: $red;
+    text-align: end;
+  }
+}

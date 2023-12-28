@@ -1,0 +1,98 @@
+.collection {
+  @include flex(column, flex-start, center);
+  padding: 10px;
+
+  &-img {
+    height: 50px;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+
+    &.big {
+      height: 200px;
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &-title {
+    @include text($black, 28px, $calama, 700);
+    margin-top: 10px;
+
+    @media screen and (max-width: 1199.9px) {
+      @include flex(column, space-between, center);
+      height: 50px;
+    }
+  }
+
+  &-price {
+    @include text($black, 28px, $calama, 100);
+  }
+
+  &__controller {
+    @include flex;
+    margin-top: 20px;
+    width: 100%;
+
+    @media screen and (max-width: 899.9px) {
+      @include flex(column, space-between, center);
+      height: 50px;
+    }
+
+    &-text {
+      @include text($black, 18px, Calibri);
+    }
+
+    &-input {
+      @include text($black, 16px, 'Calibri', 700, 20px);
+      color: rgba($black, 0.8);
+      width: 50%;
+      border: none;
+      outline: none;
+      background-color: rgba($gray, 0.2);
+      border-radius: 3px;
+      transition: all 0.1s ease;
+      text-align: center;
+
+      @media screen and (max-width: 1199.9px) {
+        font-size: 18px;
+      }
+
+      @media screen and (max-width: 899.9px) {
+        width: 100%;
+      }
+
+      &:focus {
+        background-color: rgba($gray, 0.1);
+        color: rgba($black, 1);
+      }
+    }
+  }
+
+  &-btn {
+    @include btn(100%);
+    margin-top: 20px;
+    line-height: 10px;
+
+    &:disabled {
+      border: 1px solid transparent;
+      backdrop-filter: blur(0);
+      color: $pink;
+      background-color: rgb($black, 0.4);
+      pointer-events: none;
+    }
+
+    &.active {
+      border: 1px solid transparent;
+      backdrop-filter: blur(0);
+      color: $white;
+      background-color: rgb($darkgreen, 0.4);
+      pointer-events: none;
+    }
+  }
+}

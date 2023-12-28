@@ -2,7 +2,9 @@
   <div class="collection">
     <slot></slot>
     <div :class="{'collection-img': true, big: collection === 'bouquets'}">
-      <img :src="`src/assets/img/${collection}/${url}.jpg`" />
+      <img :src="imageUrls[collection][url]" />
+
+           
     </div>
     <div class="collection-title">
       {{ title }}
@@ -35,6 +37,7 @@
 
 <script>
 import { computed, ref, watch } from 'vue'
+import { imageUrls } from '@/config/img/urls.js'
 
 export default {
   props: {
@@ -76,7 +79,8 @@ export default {
       price,
       res,
       handlerClick,
-      isActive
+      isActive,
+      imageUrls
     }
   },
 }

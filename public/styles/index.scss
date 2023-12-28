@@ -1,0 +1,38 @@
+// common
+@import '@@/styles/common/normalize.scss';
+@import '@@/styles/common/fonts.scss';
+@import '@@/styles/common/variables.scss';
+@import '@@/styles/common/mixins.scss';
+@import '@@/styles/common/default.scss';
+
+// components
+@import '@@/styles/components/the-nav.scss';
+@import '@@/styles/components/the-header.scss';
+@import '@@/styles/components/the-footer.scss';
+@import '@@/styles/components/the-achievements.scss';
+@import '@@/styles/components/the-portfolio.scss';
+@import '@@/styles/components/the-builder.scss';
+
+// ui
+@import '@@/styles/ui/app-link-icon.scss';
+@import '@@/styles/ui/app-accordion.scss';
+@import '@@/styles/ui/app-sections.scss';
+@import '@@/styles/ui/app-bread-crumbs.scss';
+@import '@@/styles/ui/app-control.scss';
+@import '@@/styles/ui/app-form.scss';
+@import '@@/styles/ui/app-collection.scss';
+@import '@@/styles/ui/app-alert.scss';
+@import '@@/styles/ui/app-info.scss';
+@import '@@/styles/ui/app-loader.scss';
+@import '@@/styles/ui/app-pagination.scss';
+@import '@@/styles/ui/app-modal.scss';
+
+// views
+@import '@@/styles/views/auth_reg.scss';
+@import '@@/styles/views/builder.scss';
+@import '@@/styles/views/bouquets.scss';
+@import '@@/styles/views/404.scss';
+
+
+// sections
+@import '@@/styles/views/sections/faq-section.scss';

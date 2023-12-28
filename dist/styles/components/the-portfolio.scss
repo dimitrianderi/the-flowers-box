@@ -1,0 +1,47 @@
+.portfolio-btn {
+  @include btn(100%, 32px, $black, $white, 25px, none);
+  width: 870px;
+  margin-top: 30px;
+  position: relative;
+
+  @media screen and (max-width: 1199.9px) {
+    margin-top: 25px;
+    width: 740px;
+  }
+
+  @media screen and (max-width: 767.9px) {
+    margin-top: 25px;
+    width: 80%;
+    min-width: 250px;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    border: 2px solid $whiteCream;
+    cursor: default;
+
+    @media screen and (max-width: 1199.9px) {
+      width: 35%;
+    }
+
+    @media screen and (max-width: 767.9px) {
+      width: 22%;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      width: 20%;
+    }
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
+}

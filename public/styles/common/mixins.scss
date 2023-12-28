@@ -1,0 +1,108 @@
+@mixin flex($direction: row, $justify: space-between, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin icon($color: $black, $second-color: $gray, $size: 24px) {
+  height: $size;
+  color: $color;
+  padding: 0 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $second-color;
+  }
+}
+
+@mixin link(
+  $color: $black,
+  $second-color: $gray,
+  $size: 28px,
+  $family: $calama,
+  $weight: 500,
+  $spacing: +2px
+) {
+  font-size: $size;
+  font-family: $family, Arial, Helvetica, sans-serif;
+  color: $color;
+  font-weight: $weight;
+  letter-spacing: $spacing;
+  text-transform: uppercase;
+  border: 3px solid transparent;
+  transition: all 0.2s ease;
+
+  &.active {
+    border-bottom: 3px solid $black;
+  }
+
+  &:hover {
+    color: $second-color;
+    border-bottom: 3px solid $second-color;
+
+    &.active {
+      border-bottom: 3px solid $second-color;
+    }
+  }
+}
+
+@mixin text(
+  $color: $white,
+  $size: 18px,
+  $family: $calama,
+  $weight: 500,
+  $height: 20px,
+  $spacing: 0
+) {
+  color: $color;
+  font-size: $size;
+  font-family: $family, Arial, Helvetica, sans-serif;
+  font-weight: $weight;
+  line-height: $height;
+  letter-spacing: $spacing;
+}
+
+@mixin btn(
+  $width: 200px,
+  $size: 32px,
+  $color: $white,
+  $shadow: $black,
+  $height: 50px,
+  $border: 1px solid $white
+) {
+  width: $width;
+  font-size: $size;
+  color: $color;
+  border: $border;
+  padding: 15px;
+  padding-bottom: 25px;
+  font-family: $calama, Arial, Helvetica, sans-serif;
+  background-color: rgb($black, 0.1);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  line-height: $height;
+  display: inline-block;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 2px $shadow;
+  }
+}
+
+@mixin modal($top: 40%, $left: 50%) {
+  position: fixed;
+  top: $top;
+  left: $left;
+  transform: translate(-50%, -50%);
+  border-radius: 30px;
+  overflow: hidden;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}

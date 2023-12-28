@@ -1,0 +1,129 @@
+.builder {
+  @include flex(column, flex-start, space-between);
+  padding: 50px;
+  padding-top: 20px;
+  width: 100%;
+
+  @media screen and (max-width: 1199.9px) {
+    padding: 40px;
+  }
+
+  @media screen and (max-width: 767.9px) {
+    padding: 30px;
+  }
+
+  @media screen and (max-width: 479.9px) {
+    padding: 20px;
+  }
+
+  &__title {
+    @include text($black, 72px, $fashion, 700);
+
+    @media screen and (max-width: 767.9px) {
+      font-size: 56px;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      font-size: 42px;
+    }
+  }
+
+  &__description {
+    @include text($black, 26px, Calibri, 500, _, +5px);
+
+    @media screen and (max-width: 1199.9px) {
+      font-size: 24px;
+    }
+
+    @media screen and (max-width: 767.9px) {
+      font-size: 22px;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      font-size: 20px;
+      letter-spacing: +2px;
+    }
+  }
+
+  &__wrapper {
+    @include flex(row, space-between, flex-start);
+    margin-top: 50px;
+    width: 100%;
+    gap: 100px;
+
+    @media screen and (max-width: 1199.9px) {
+      flex-wrap: wrap;
+    }
+
+    @media screen and (max-width: 479.9px) {
+      gap: 30px;
+    }
+  }
+
+  &__stages {
+    @include flex(column, flex-start, flex-start);
+    width: 70%;
+    gap: 20px;
+
+    @media screen and (max-width: 1199.9px) {
+      width: 100%;
+    }
+
+    &__content {
+      padding: 10px;
+      padding-top: 0;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      flex-wrap: wrap;
+
+      @media screen and (max-width: 1399.9px) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 25px;
+      }
+
+      @media screen and (max-width: 1199.9px) {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 60px;
+      }
+
+      @media screen and (max-width: 967.9px) {
+        gap: 30px;
+      }
+
+      @media screen and (max-width: 899.9px) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 60px;
+      }
+
+      @media screen and (max-width: 767.9px) {
+        gap: 20px;
+      }
+
+      @media screen and (max-width: 599.9px) {
+        gap: 60px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      @media screen and (max-width: 479.9px) {
+        gap: 20px;
+      }
+
+      @media screen and (max-width: 379.9px) {
+        gap: 0px;
+      }
+    }
+  }
+
+  &__info {
+    position: sticky;
+    width: 30%;
+    top: 100px;
+
+    @media screen and (max-width: 1199.9px) {
+      width: 100%;
+      position: static;
+    }
+  }
+}

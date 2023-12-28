@@ -11,11 +11,16 @@
           <div class="sections__card-img">
             <img
               class="img"
-              :src="`src/assets/img/${name}/${idx + 1}.jpg`"
+              :src="imageUrls[name][idx].url"
               alt="bouquet"
             />
           </div>
-          <button class="sections__card-btn" @click="$emit('getData', card[getData])">{{ btn }}</button>
+          <button
+            class="sections__card-btn"
+            @click="$emit('getData', card[getData])"
+          >
+            {{ btn }}
+          </button>
         </div>
       </div>
       <slot></slot>
@@ -25,6 +30,7 @@
 
 <script>
 import AppBreadCrumbs from '@/components/ui/AppBreadCrumbs.vue'
+import { imageUrls } from '@/config/img/urls.js'
 export default {
   components: { AppBreadCrumbs },
   props: {
@@ -33,9 +39,12 @@ export default {
     btn: String,
     name: String,
     cards: Object,
-    getData: String
+    getData: String,
   },
   emits: ['getData'],
+  setup() {
+    return { imageUrls }
+  },
 }
 </script>
 
