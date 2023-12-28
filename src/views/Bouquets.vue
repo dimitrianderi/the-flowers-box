@@ -44,7 +44,6 @@
           </div>
           <app-pagination></app-pagination>
         </div>
-
         <span v-else class="bouquets__shop-title">No bouquets available</span>
         <div class="bouquets__shop-panel">
           <button

@@ -37,11 +37,13 @@
 
     @media screen and (max-width: 767.9px) {
       font-size: 22px;
+      letter-spacing: +1px;
     }
 
     @media screen and (max-width: 479.9px) {
       font-size: 20px;
-      letter-spacing: +2px;
+      letter-spacing: 0px;
+      text-align: center;
     }
   }
 
@@ -55,7 +57,7 @@
     }
 
     @media screen and (max-width: 479.9px) {
-      gap: 30px;
+      margin-top: 10px;
     }
 
     &__search {
@@ -73,17 +75,14 @@
         transition: all 0.05s ease;
 
         @media screen and (max-width: 1199.9px) {
-          width: 200px;
           font-size: 18px;
         }
 
         @media screen and (max-width: 767.9px) {
-          width: 180px;
           font-size: 16px;
         }
 
         @media screen and (max-width: 479.9px) {
-          width: 160px;
           font-size: 14px;
         }
 
@@ -103,9 +102,47 @@
     margin-top: 20px;
     position: relative;
 
+    @media screen and (max-width: 1339.9px) {
+      gap: 10px;
+    }
+
+    @media screen and (max-width: 1199.9px) {
+      gap: 0;
+    }
+
+    @media screen and (max-width: 1134.9px) {
+      @include flex(column, space-between, center);
+    }
+
+    @media screen and (max-width: 767.9px) {
+      font-size: 16px;
+      margin-top: 0;
+    }
+
     &__content {
       @include flex(column, flex-start, center);
       width: 75%;
+
+      @media screen and (max-width: 1339.9px) {
+        width: 80%;
+      }
+
+      @media screen and (max-width: 1299.9px) {
+        width: 90%;
+      }
+
+      @media screen and (max-width: 1134.9px) {
+        order: 2;
+        width: 100%;
+      }
+
+      @media screen and (max-width: 767.9px) {
+        font-size: 16px;
+      }
+
+      @media screen and (max-width: 479.9px) {
+        font-size: 14px;
+      }
 
       &-contain {
         padding: 10px;
@@ -115,6 +152,19 @@
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 16px;
         flex-wrap: wrap;
+
+        @media screen and (max-width: 1299.9px) {
+          gap: 5px;
+          padding: 0;
+        }
+
+        @media screen and (max-width: 767.9px) {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @media screen and (max-width: 399.9px) {
+          grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
       }
     }
 
@@ -123,10 +173,27 @@
       height: 100%;
       padding: 10px;
 
+      @media screen and (max-width: 1134.9px) {
+        @include flex(row, space-between, center);
+        width: 100%;
+      }
+
+      @media screen and (max-width: 479.9px) {
+        padding: 10px;
+      }
+
       &-btn {
         @include btn(100%);
         line-height: 10px;
         margin-bottom: 20px;
+
+        @media screen and (max-width: 1134.9px) {
+          width: 30%;
+        }
+
+        @media screen and (max-width: 479.9px) {
+          margin-bottom: 0px;
+        }
 
         &.active {
           border: 1px solid transparent;
