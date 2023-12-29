@@ -3,7 +3,7 @@ import { useAuthStore } from '@/stores/AuthStore'
 
 const routes = [
     {
-        path: '/the-flower-box',
+        path: '/the-flowers-box',
         name: 'Main',
         component: () => import('@/views/Main.vue'),
         meta: {
@@ -12,7 +12,7 @@ const routes = [
     },
     {
         path: '/',
-        redirect: '/main'
+        redirect: '/the-flowers-box'
     },
     {
         path: '/auth',
