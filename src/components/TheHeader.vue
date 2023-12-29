@@ -19,7 +19,7 @@
           <div class="slide__info">
             <h2 class="slide__info-title">{{ slide.title }}</h2>
             <button
-              class="slide__info-btn"
+              class="slide__Finfo-btn"
               @click="setView(slide.view)"
               @mouseleave="playInterval"
               @mouseover="stopInterval"

@@ -8,7 +8,7 @@
     getData="author"
     @getData="sendAuthor($event)"
   >
-    <button class="portfolio-btn">see all bouquets</button>
+    <button class="portfolio-btn" @click="allBouquets()">see all bouquets</button>
   </app-sections>
 </template>
 
@@ -32,9 +32,15 @@ export default {
       router.push('/bouquets')
     }
 
+    const allBouquets = () => {
+      filterStore.clearFilters()
+      router.push('/bouquets')
+    }
+
     return {
       cards,
       sendAuthor,
+      allBouquets
     }
   },
 }
