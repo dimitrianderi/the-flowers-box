@@ -122,7 +122,6 @@ export default {
 
     const onModal = (bouquet) => {
       isModal.value = true
-      console.log(bouquet)
       Object.assign(bouquetData, bouquet);
     }
 

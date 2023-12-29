@@ -11,8 +11,8 @@
       </div>
       <nav class="menu__navbar">
         <ul class="nav" :class="{ active: isOpenBurger }">
-          <li class="nav__item" v-for="link in links" :key="link">
-            <router-link :to="link.to" custom v-slot="{ navigate, href }" @click="toggleBurger = false"
+          <li class="nav__item" v-for="link in links" :key="link" @click="toggleBurger = false">
+            <router-link :to="link.to" custom v-slot="{ navigate, href }" 
               ><a
                 href="#"
                 @click="navigate"

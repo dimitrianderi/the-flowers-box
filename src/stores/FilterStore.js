@@ -69,9 +69,9 @@ export const useFilterStore = defineStore('filterStore', () => {
     const totalPage = computed(() => bouquets.value.length)
 
     const getTypeOfAuthor = (author) => {
-        if (author === 'admin@gmail.com') {
+        if (author === 'admin') {
             return 'Design'
-        } else if (author === user.value) {
+        } else if (author === user.value.split('@')[0]) {
             return 'My'
         } else {
             return 'Custom'
