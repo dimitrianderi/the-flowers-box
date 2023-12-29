@@ -14,7 +14,7 @@
         Pick flowers that you know they’ll love and you’ll definitely make them
         smile!
       </article>
-      <button class="builder-btn">build your bouquet!</button>
+      <router-link to="/builder" class="builder-btn">build your bouquet!</router-link>
     </div>
   </div>
 </template>
