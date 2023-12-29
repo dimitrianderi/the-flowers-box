@@ -3,12 +3,16 @@ import { useAuthStore } from '@/stores/AuthStore'
 
 const routes = [
     {
-        path: '/',
+        path: '/main',
         name: 'Main',
         component: () => import('@/views/Main.vue'),
         meta: {
             layout: 'main',
         }
+    },
+    {
+        path: '/',
+        redirect: '/main'
     },
     {
         path: '/auth',
