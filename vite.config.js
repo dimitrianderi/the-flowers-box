@@ -4,8 +4,8 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/the-flowers-box/",
   plugins: [vue()],
-  base: '/the-flowers-box/',
   resolve: {
     alias: [
       { find: "@", replacement: path.resolve(__dirname, "src") },
