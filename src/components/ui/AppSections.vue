@@ -11,7 +11,7 @@
           <div class="sections__card-img">
             <img
               class="img"
-              :src="imageUrls[name][idx].url"
+              :src="getImageUrl(idx + 1, name)"
               alt="bouquet"
             />
           </div>
@@ -30,7 +30,8 @@
 
 <script>
 import AppBreadCrumbs from '@/components/ui/AppBreadCrumbs.vue'
-import { imageUrls } from '@/config/img/urls.js'
+import { getImageUrl } from '@/utils/getImageUrl.js'
+
 export default {
   components: { AppBreadCrumbs },
   props: {
@@ -43,7 +44,7 @@ export default {
   },
   emits: ['getData'],
   setup() {
-    return { imageUrls }
+    return { getImageUrl }
   },
 }
 </script>

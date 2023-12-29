@@ -12,7 +12,7 @@
         <div v-if="idx === currentSlide">
           <img
             class="slide__img"
-            :src="imageUrls['slides'][idx].url"
+            :src="getImageUrl(`slide${idx + 1}`)"
             loading="lazy"
             alt="slide"
           />
@@ -54,9 +54,9 @@
 <script>
 import { onMounted, ref } from 'vue'
 import { slides } from '@/config/the-header.js'
-import { imageUrls } from '@/config/img/urls.js'
 import { useRouter } from 'vue-router'
 import { useFilterStore } from '@/stores/FilterStore'
+import { getImageUrl } from '@/utils/getImageUrl.js'
 
 export default {
   setup() {
@@ -108,7 +108,7 @@ export default {
       stopInterval,
       playInterval,
       setView,
-      imageUrls,
+      getImageUrl
     }
   },
 }

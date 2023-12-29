@@ -1,10 +1,8 @@
 <template>
   <div class="collection">
     <slot></slot>
-    <div :class="{'collection-img': true, big: collection === 'bouquets'}">
-      <img :src="imageUrls[collection][url]" />
-
-           
+    <div :class="{ 'collection-img': true, big: collection === 'bouquets' }">
+      <img :src="getImageUrl(url.toLowerCase(), collection)" />
     </div>
     <div class="collection-title">
       {{ title }}
@@ -37,7 +35,7 @@
 
 <script>
 import { computed, ref, watch } from 'vue'
-import { imageUrls } from '@/config/img/urls.js'
+import { getImageUrl } from '@/utils/getImageUrl.js'
 
 export default {
   props: {
@@ -48,7 +46,7 @@ export default {
     isInput: Boolean,
     isPrice: Boolean,
     active: Object,
-    url: String
+    url: String,
   },
   emits: ['addData'],
 
@@ -57,7 +55,10 @@ export default {
     const price = ref(props.price)
     const res = computed(() => (+amount.value * +price.value).toFixed(2))
 
-    const isActive = computed(() => props.active && props.active.find(obj => obj.title === props.title))
+    const isActive = computed(
+      () =>
+        props.active && props.active.find((obj) => obj.title === props.title)
+    )
 
     const handlerClick = () => {
       context.emit('addData', {
@@ -80,7 +81,7 @@ export default {
       res,
       handlerClick,
       isActive,
-      imageUrls
+      getImageUrl,
     }
   },
 }
