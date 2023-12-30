@@ -20,6 +20,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.5",
     "animejs": "^3.2.2",
     "axios": "^1.6.2",
+    "eslint-config-airbnb": "^19.0.4",
     "normalize-scss": "^8.0.0",
     "pinia": "^2.1.7",
     "vee-validate": "^4.12.3",
@@ -34,6 +35,6 @@
     "eslint-plugin-vue": "^9.19.2",
     "gh-pages": "^6.1.1",
     "sass": "^1.69.5",
-    "vite": "^5.0.0"
+    "vite": "^5.0.10"
   }
 }

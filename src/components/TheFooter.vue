@@ -3,13 +3,14 @@
     <div class="footer__container container">
       <div class="footer__map">
         <iframe
-          class="footer__map-img"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.853412987903!2d35.85492943261694!3d31.964873249444064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ca109bcb863c7%3A0x2186ad09ca835bfd!2sFlowers%20Box!5e0!3m2!1sru!2s!4v1702470526546!5m2!1sru!2s"
+        class="footer__map-img"
+          :src="mapUrl"
           style="border: 0"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+        >
+        </iframe>
       </div>
       <div class="footer__wrapper">
         <div class="footer__info">
@@ -57,14 +58,15 @@
 </template>
 
 <script>
-import AppLinkIcon from './ui/AppLinkIcon.vue'
+import AppLinkIcon from '@/components/ui/AppLinkIcon.vue'
+import { mapUrl } from '@/config/the-footer.js'
 import { fullAddress, contacts, icons } from '@/config/the-footer.js'
 
 export default {
   components: { AppLinkIcon },
 
   setup() {
-    return { icons, fullAddress, contacts }
+    return { icons, fullAddress, contacts, mapUrl }
   },
 }
 </script>

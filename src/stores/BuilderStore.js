@@ -79,7 +79,7 @@ export const useBuilderStore = defineStore('builderStore', () => {
         bouquet.name = name
         bouquet.author = author
         bouquet.price = getResultCost.value
-        bouquet.greenery = [{ ...bouquet.greenery[0], amount: totalFlowers.value, res: +totalFlowers.value * bouquet.greenery[0].price }]
+        bouquet.greenery = [{ ...bouquet.greenery[0], amount: totalFlowers.value, res: (+totalFlowers.value * bouquet.greenery[0].price).toFixed(2) }]
 
         try {
             await orderStore.createBouquet(bouquet)

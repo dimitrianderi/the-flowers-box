@@ -18,7 +18,7 @@
 
       <div
         class="info__block__content"
-        v-for="greenery in bouquet.greeneries"
+        v-for="greenery in bouquet.greenery"
         :key="greenery.title"
       >
         <span>{{ greenery.title }}, {{ greenery.amount }} pcs.</span>
