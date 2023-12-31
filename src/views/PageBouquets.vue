@@ -43,7 +43,7 @@
               :price="+bouquet.price"
               :is-price="true"
               :url="getMaxFlowers(bouquet.flowers)"
-              @click="onModal(bouquet)"
+              @addData="onModal(bouquet)"
             />
           </div>
           <app-pagination />
