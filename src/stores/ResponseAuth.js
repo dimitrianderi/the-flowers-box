@@ -1,24 +1,23 @@
-import { defineStore } from "pinia";
-import { computed, ref, watch } from "vue";
+import { defineStore } from 'pinia';
+import { computed, ref, watch } from 'vue';
 
 export const useResponseStore = defineStore('responseStore', () => {
-    const response = ref('')
+  const response = ref('');
 
-    const getResponse = computed(() => response.value)
+  const getResponse = computed(() => response.value);
 
-    const updateResponse = (newValue) => {
-        response.value = newValue
-    }
+  const updateResponse = (newValue) => {
+    response.value = newValue;
+  };
 
-    watch(response, () => {
-        setTimeout(() => {
-            response.value = ''
-        }, 2000)
-    })
+  watch(response, () => {
+    setTimeout(() => {
+      response.value = '';
+    }, 2000);
+  });
 
-
-    return {
-        getResponse,
-        updateResponse
-    }
-})
+  return {
+    getResponse,
+    updateResponse,
+  };
+});

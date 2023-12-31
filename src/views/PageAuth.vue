@@ -3,46 +3,46 @@
     <div class="auth_reg__wrapper">
       <app-form
         title="Authorization"
-        btnText="Log In"
+        btn-text="Log In"
+        :is-submitting="isSubmitting"
         @onSubmit="onSubmit"
-        :isSubmitting="isSubmitting"
       >
         <app-control
+          id="email"
+          v-model="email"
           name="auth"
           type="email"
           label="Email"
-          id="email"
-          v-model="email"
           :error="errorEmail"
           autocomplete="on"
-        ></app-control>
+        />
         <app-control
+          id="pass"
+          v-model="pass"
           name="auth"
           type="password"
           label="Password"
-          id="pass"
-          v-model="pass"
           :error="errorPass"
           autocomplete="on"
-        ></app-control>
+        />
       </app-form>
     </div>
   </section>
 </template>
 
 <script>
-import AppForm from '@/components/ui/AppForm.vue'
-import AppControl from '@/components/ui/AppControl.vue'
-import { useAuth } from '@/use/useAuth.js'
+import AppForm from '@/components/ui/AppForm.vue';
+import AppControl from '@/components/ui/AppControl.vue';
+import { useAuth } from '@/use/useAuth.js';
 
 export default {
   components: { AppForm, AppControl },
   setup() {
     return {
       ...useAuth(),
-    }
+    };
   },
-}
+};
 </script>
 
 <style></style>

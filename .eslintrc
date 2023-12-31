@@ -1,17 +1,17 @@
 {
-  "extends": ["airbnb-base", "plugin:vue/recommended"],
-  "env": {
-    "browser": true
-  },
-  "ignorePatterns": ["vite.config.js"],
-  "plugins": ["vue"],
-  "semi": ["error", "always"],
-  "quotes": ["error", "double"],
-  "overrides": [
-    {
-      "files": ["**/*.scss"],
-      "processor": "stylelint-processor-scss",
-      "extends": ["stylelint-config-standard"]
+    "extends": ["airbnb-base", "plugin:vue/recommended"],
+    "env": {
+      "browser": true
+    },
+    "ignorePatterns": ["vite.config.js"],
+    "plugins": ["vue"],
+    "rules": {
+      "linebreak-style": 0,
+      "global-require": 0,
+      "eslint linebreak-style": [0, "error", "windows"],
+      "import/prefer-default-export": "off",
+      "import/no-unresolved": "off",
+      "import/extensions": "off",
+      "vue/no-multiple-template-root": "off"
     }
-  ]
-}
+  }

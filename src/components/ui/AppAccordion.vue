@@ -1,8 +1,18 @@
 <template>
   <div class="accordion">
-    <input type="checkbox" class="accordion__checkbox" :id="id" />
-    <label class="accordion__label" :for="id">
-      <span class="accordion__label-idx" v-if="idx !== null">{{ idx }}</span>
+    <input
+      :id="id"
+      type="checkbox"
+      class="accordion__checkbox"
+    >
+    <label
+      class="accordion__label"
+      :for="id"
+    >
+      <span
+        v-if="idx !== null"
+        class="accordion__label-idx"
+      >{{ index }}</span>
       <span class="accordion__label-title">{{ title }}</span>
     </label>
     <div class="accordion__content">
@@ -14,28 +24,34 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from 'vue';
+
 export default {
   props: {
     idx: {
       type: Number,
       default: null,
     },
-    id: String,
-    title: String,
+    id: {
+      type: String,
+      default: '',
+    },
+    title: {
+      type: String,
+      default: '',
+    },
   },
 
   setup(props) {
-    const idx = ref(null)
+    const index = ref(null);
 
     if (props.idx !== null) {
-      idx.value = +props.idx + 1
-      idx.value = +idx.value > 9 ? idx.value : '0' + idx.value
+      index.value = (props.idx + 1).toString().padStart(2, '0');
     }
 
-    return { idx }
+    return { index };
   },
-}
+};
 </script>
 
 <style></style>

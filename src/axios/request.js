@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
 const requestAxios = axios.create({
-    baseURL: import.meta.env.VITE_DB
-})
+  baseURL: import.meta.env.VITE_DB,
+});
 
-export default requestAxios
+export default requestAxios;

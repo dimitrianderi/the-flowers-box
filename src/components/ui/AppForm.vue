@@ -1,7 +1,12 @@
 <template>
-  <form class="form" @submit.prevent="$emit('onSubmit')">
-    <h2 class="form__title">{{ title }}</h2>
-    <slot></slot>
+  <form
+    class="form"
+    @submit.prevent="$emit('onSubmit')"
+  >
+    <h2 class="form__title">
+      {{ title }}
+    </h2>
+    <slot />
     <button
       type="submit"
       class="form__btn"
@@ -16,12 +21,18 @@
 <script>
 export default {
   props: {
-    title: String,
-    btnText: String,
-    isSubmitting: Boolean
+    title: {
+      type: String,
+      default: '',
+    },
+    btnText: {
+      type: String,
+      default: '',
+    },
+    isSubmitting: Boolean,
   },
-  emits: ['onSubmit']
-}
+  emits: ['onSubmit'],
+};
 </script>
 
 <style></style>

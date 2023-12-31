@@ -6,37 +6,36 @@
     btn="more"
     name="faq"
     :cards="cards"
-    getData="href"
+    get-data="href"
     @getData="goFaq($event)"
-  >
-  </app-sections>
-  <router-view></router-view>
+  />
+  <router-view />
 </template>
 
 <script>
-import AppSections from '@/components/ui/AppSections.vue'
-import { cards } from '@/config/app-sections.js'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router';
+import AppSections from '@/components/ui/AppSections.vue';
+import { cards } from '@/config/app-sections.js';
 
 export default {
+  name: 'FAQ',
   components: { AppSections },
   setup() {
-    const route = useRoute()
-    const router = useRouter()
+    const route = useRoute();
+    const router = useRouter();
 
     const goFaq = (e) => {
-      const href = e
-      router.push(`/faq/${href}`)
-    }
+      const href = e;
+      router.push(`/faq/${href}`);
+    };
 
     return {
       cards,
       route,
       goFaq,
-    }
+    };
   },
-  name: 'FAQ',
-}
+};
 </script>
 
 <style></style>

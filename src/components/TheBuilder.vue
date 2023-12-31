@@ -1,12 +1,12 @@
 <template>
   <div class="builder">
-    <div class="builder__header"></div>
+    <div class="builder__header" />
     <div class="container builder__container">
-      <h2 class="builder-title">Bouquet Builder</h2>
-      <span class="builder-description"
-        >create your own flower bouquet using our exclusive bouquet
-        builder!</span
-      >
+      <h2 class="builder-title">
+        Bouquet Builder
+      </h2>
+      <span class="builder-description">create your own flower bouquet using our exclusive bouquet
+        builder!</span>
       <article class="builder-text">
         Create unique, personalised bouquets online and make your flower bouquet
         extra special. Make your own bouquet choosing your favourite flowers and
@@ -14,13 +14,18 @@
         Pick flowers that you know they’ll love and you’ll definitely make them
         smile!
       </article>
-      <router-link to="/builder" class="builder-btn">build your bouquet!</router-link>
+      <router-link
+        to="/builder"
+        class="builder-btn"
+      >
+        build your bouquet!
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style></style>

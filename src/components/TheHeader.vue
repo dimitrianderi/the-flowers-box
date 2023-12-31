@@ -2,9 +2,9 @@
   <header class="header">
     <div class="header__slider">
       <transition
-        class="slide"
         v-for="(slide, idx) in slides"
         :key="slide.src"
+        class="slide"
         :style="{ 'z-index': idx === currentSlide ? 1 : 0 }"
         name="fade"
         mode="out-in"
@@ -15,9 +15,11 @@
             :src="getImageUrl(`slide${idx + 1}`)"
             loading="lazy"
             alt="slide"
-          />
+          >
           <div class="slide__info">
-            <h2 class="slide__info-title">{{ slide.title }}</h2>
+            <h2 class="slide__info-title">
+              {{ slide.title }}
+            </h2>
             <button
               class="slide__info-btn"
               @click="setView(slide.view)"
@@ -39,67 +41,76 @@
     />
     <div class="header__marks">
       <span
-        class="header__marks-mark"
         v-for="mark in slides.length"
         :key="mark"
+        class="header__marks-mark"
         :class="{ active: currentSlide === mark - 1 }"
         @click="currentSlide = mark - 1"
         @mouseleave="playInterval"
         @mouseover="stopInterval"
-      ></span>
+      />
     </div>
   </header>
 </template>
 
 <script>
-import { onMounted, ref } from 'vue'
-import { slides } from '@/config/the-header.js'
-import { useRouter } from 'vue-router'
-import { useFilterStore } from '@/stores/FilterStore'
-import { getImageUrl } from '@/utils/getImageUrl.js'
+import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useFilterStore } from '@/stores/FilterStore';
+import { slides } from '@/config/the-header.js';
+import { getImageUrl } from '@/utils/getImageUrl.js';
 
 export default {
   setup() {
-    const currentSlide = ref(0)
-    const interval = ref(null)
-    const router = useRouter()
-    const filterStore = useFilterStore()
-
-    const changeSlide = (slide) => {
-      clearInterval(interval.value)
-      playInterval()
-      slide === 'right' ? nextSlide() : prevSlide()
-    }
-
-    const nextSlide = () => {
-      currentSlide.value === slides.length - 1
-        ? (currentSlide.value = 0)
-        : currentSlide.value++
-    }
+    const currentSlide = ref(0);
+    const interval = ref(null);
+    const router = useRouter();
+    const filterStore = useFilterStore();
 
     const prevSlide = () => {
-      currentSlide.value === 0
-        ? (currentSlide.value = slides.length - 1)
-        : currentSlide.value--
-    }
+      if (currentSlide.value === 0) {
+        currentSlide.value = slides.length - 1;
+      } else {
+        currentSlide.value -= 1;
+      }
+    };
+
+    const nextSlide = () => {
+      if (currentSlide.value === slides.length - 1) {
+        currentSlide.value = 0;
+      } else {
+        currentSlide.value += 1;
+      }
+    };
 
     const playInterval = () => {
-      interval.value = setInterval(nextSlide, 4000)
-    }
+      interval.value = setInterval(nextSlide, 4000);
+    };
+
+    const changeSlide = (slide) => {
+      clearInterval(interval.value);
+      playInterval();
+
+      if (slide === 'right') {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    };
 
     const stopInterval = () => {
-      clearInterval(interval.value)
-    }
+      clearInterval(interval.value);
+    };
 
     const setView = (view) => {
-      filterStore.clearFilters()
-      filterStore.addView(view)
-      router.push('/bouquets')
-    }
+      filterStore.clearFilters();
+      filterStore.addView(view);
+      router.push('/bouquets');
+    };
 
     onMounted(() => {
-      playInterval()
-    })
+      playInterval();
+    });
 
     return {
       currentSlide,
@@ -108,10 +119,10 @@ export default {
       stopInterval,
       playInterval,
       setView,
-      getImageUrl
-    }
+      getImageUrl,
+    };
   },
-}
+};
 </script>
 
 <style scoped>

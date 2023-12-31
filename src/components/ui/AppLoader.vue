@@ -1,11 +1,11 @@
 <template>
   <div class="loader">
-    <div class="loader-content"></div>
+    <div class="loader-content" />
   </div>
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style></style>

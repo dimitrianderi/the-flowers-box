@@ -1,7 +1,10 @@
 <template>
   <div class="alert">
     <div class="alert__wrapper">
-      <font-awesome-icon class="alert-icon" icon="fa-regular fa-bell" />
+      <font-awesome-icon
+        class="alert-icon"
+        icon="fa-regular fa-bell"
+      />
       <span class="alert-text">{{ text }}</span>
     </div>
   </div>
@@ -10,9 +13,12 @@
 <script>
 export default {
   props: {
-    text: String,
+    text: {
+      type: String,
+      default: '',
+    },
   },
-}
+};
 </script>
 
 <style></style>

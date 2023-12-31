@@ -2,49 +2,49 @@
   <div class="pagination">
     <app-link-icon
       class="pagination-icon"
-      iconClass="fa-solid fa-backward-fast"
+      icon-class="fa-solid fa-backward-fast"
       :disabled="page === 1"
-      @click="filterStore.goStart()"
-    ></app-link-icon>
+      @click.prevent="filterStore.goStart()"
+    />
     <app-link-icon
       class="pagination-icon"
-      iconClass="fa-solid fa-backward"
+      icon-class="fa-solid fa-backward"
       :disabled="page === 1"
-      @click="filterStore.goLast()"
-    ></app-link-icon>
+      @click.prevent="filterStore.goLast()"
+    />
     <span class="pagination-page">{{ page }}</span>
     <app-link-icon
       class="pagination-icon"
-      iconClass="fa-solid fa-forward"
+      icon-class="fa-solid fa-forward"
       :disabled="!filterStore.next"
-      @click="filterStore.goNext()"
-    ></app-link-icon>
+      @click.prevent="filterStore.goNext()"
+    />
     <app-link-icon
       class="pagination-icon"
-      iconClass="fa-solid fa-forward-fast"
+      icon-class="fa-solid fa-forward-fast"
       :disabled="!filterStore.next"
-      @click="filterStore.goEnd()"
-    ></app-link-icon>
+      @click.prevent="filterStore.goEnd()"
+    />
   </div>
 </template>
 
 <script>
-import AppLinkIcon from './AppLinkIcon.vue'
-import { useFilterStore } from '@/stores/filterStore'
-import { computed } from 'vue'
+import { computed } from 'vue';
+import { useFilterStore } from '@/stores/filterStore';
+import AppLinkIcon from '@/components/ui/AppLinkIcon.vue';
 
 export default {
   components: { AppLinkIcon },
   setup() {
-    const filterStore = useFilterStore()
-    const page = computed(() => filterStore.getCurrentPage)
+    const filterStore = useFilterStore();
+    const page = computed(() => filterStore.getCurrentPage);
 
     return {
       filterStore,
-      page
-    }
+      page,
+    };
   },
-}
+};
 </script>
 
 <style></style>

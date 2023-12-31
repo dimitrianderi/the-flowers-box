@@ -1,10 +1,16 @@
 <template>
   <section class="sections">
     <div class="sections__container container">
-      <h2 class="sections__title">{{ title }}</h2>
+      <h2 class="sections__title">
+        {{ title }}
+      </h2>
       <span class="sections__description">{{ description }}</span>
       <div class="sections__cards">
-        <div class="sections__card" v-for="(card, idx) in cards" :key="idx">
+        <div
+          v-for="(card, idx) in cards"
+          :key="idx"
+          class="sections__card"
+        >
           <div class="sections__card-title">
             {{ card.title.toUpperCase() }}
           </div>
@@ -13,7 +19,7 @@
               class="img"
               :src="getImageUrl(idx + 1, name)"
               alt="bouquet"
-            />
+            >
           </div>
           <button
             class="sections__card-btn"
@@ -23,30 +29,46 @@
           </button>
         </div>
       </div>
-      <slot></slot>
+      <slot />
     </div>
   </section>
 </template>
 
 <script>
-import AppBreadCrumbs from '@/components/ui/AppBreadCrumbs.vue'
-import { getImageUrl } from '@/utils/getImageUrl.js'
+import { getImageUrl } from '@/utils/getImageUrl.js';
 
 export default {
-  components: { AppBreadCrumbs },
   props: {
-    title: String,
-    description: String,
-    btn: String,
-    name: String,
-    cards: Object,
-    getData: String,
+    title: {
+      type: String,
+      default: '',
+    },
+    description: {
+      type: String,
+      default: '',
+    },
+    btn: {
+      type: String,
+      default: '',
+    },
+    name: {
+      type: String,
+      default: '',
+    },
+    cards: {
+      type: Object,
+      default: () => {},
+    },
+    getData: {
+      type: String,
+      default: '',
+    },
   },
   emits: ['getData'],
   setup() {
-    return { getImageUrl }
+    return { getImageUrl };
   },
-}
+};
 </script>
 
 <style></style>
