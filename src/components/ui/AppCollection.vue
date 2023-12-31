@@ -44,7 +44,7 @@
 
 <script>
 import { computed, ref, watch } from 'vue';
-import { getImageUrl } from '@/utils/getImageUrl.js';
+import getImageUrl from '@/utils/getImageUrl.js';
 
 export default {
   props: {

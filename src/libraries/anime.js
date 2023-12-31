@@ -1,6 +1,6 @@
 import anime from 'animejs';
 
-export const startAnime = (el, endValue) => {
+const startAnime = (el, endValue) => {
   anime({
     targets: el,
     value: endValue,
@@ -9,3 +9,5 @@ export const startAnime = (el, endValue) => {
     duration: 2000,
   });
 };
+
+export default startAnime;

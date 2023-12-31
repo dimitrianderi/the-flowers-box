@@ -2,9 +2,9 @@ import * as yup from 'yup';
 import { useField, useForm } from 'vee-validate';
 import { computed, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
-import { useAuthStore } from '@/stores/AuthStore';
+import useAuthStore from '@/stores/AuthStore';
 
-export function useAuth() {
+function useAuth() {
   const { handleSubmit, isSubmitting, submitCount } = useForm();
   const router = useRouter();
   const authStore = useAuthStore();
@@ -60,3 +60,5 @@ export function useAuth() {
     onSubmit,
   };
 }
+
+export default useAuth;

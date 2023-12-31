@@ -30,7 +30,7 @@
 
 <script>
 import { computed } from 'vue';
-import { useFilterStore } from '@/stores/filterStore';
+import useFilterStore from '@/stores/filterStore';
 import AppLinkIcon from '@/components/ui/AppLinkIcon.vue';
 
 export default {

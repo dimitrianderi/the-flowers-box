@@ -1,5 +1,7 @@
-export const cards = [
+const cards = [
   { title: 'Creating bouquets', href: 'creating-bouquets' },
   { title: 'Delivery', href: 'delivery' },
   { title: 'About us', href: 'about' },
 ];
+
+export default cards;

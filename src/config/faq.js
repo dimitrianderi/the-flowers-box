@@ -1,4 +1,4 @@
-export const faq = {
+const faq = {
   'creating-bouquets': {
     title: 'how to place an order',
     idx: true,
@@ -29,3 +29,5 @@ export const faq = {
     ],
   },
 };
+
+export default faq;

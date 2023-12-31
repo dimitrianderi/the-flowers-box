@@ -33,7 +33,7 @@
 <script>
 import AppForm from '@/components/ui/AppForm.vue';
 import AppControl from '@/components/ui/AppControl.vue';
-import { useAuth } from '@/use/useAuth.js';
+import useAuth from '@/use/useAuth.js';
 
 export default {
   components: { AppForm, AppControl },

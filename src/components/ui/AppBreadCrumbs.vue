@@ -32,7 +32,7 @@
 <script>
 import { onMounted, ref, watchEffect } from 'vue';
 import { useRoute } from 'vue-router';
-import { useAuthStore } from '@/stores/AuthStore.js';
+import useAuthStore from '@/stores/AuthStore.js';
 
 export default {
   setup() {

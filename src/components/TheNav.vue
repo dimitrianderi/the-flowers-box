@@ -89,7 +89,7 @@
 <script>
 import { computed, onMounted, ref } from 'vue';
 import { iconsNotAuth, iconAuth, links } from '@/config/the-nav.js';
-import { useAuthStore } from '@/stores/AuthStore.js';
+import useAuthStore from '@/stores/AuthStore.js';
 import AppLinkIcon from '@/components/ui/AppLinkIcon.vue';
 
 export default {

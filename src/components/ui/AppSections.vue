@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { getImageUrl } from '@/utils/getImageUrl.js';
+import getImageUrl from '@/utils/getImageUrl.js';
 
 export default {
   props: {

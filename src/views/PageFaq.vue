@@ -15,7 +15,7 @@
 <script>
 import { useRoute, useRouter } from 'vue-router';
 import AppSections from '@/components/ui/AppSections.vue';
-import { cards } from '@/config/app-sections.js';
+import cards from '@/config/app-sections.js';
 
 export default {
   name: 'FAQ',

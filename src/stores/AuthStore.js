@@ -3,14 +3,14 @@ import { ref, computed, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import axios from '@/axios/request';
 import { API_REG, API_AUTH } from '@/api';
-import { errors } from '@/utils/errors';
-import { useBuilderStore } from './BuilderStore';
-import { useFilterStore } from './FilterStore';
+import errors from '@/utils/errors';
+import useBuilderStore from './BuilderStore';
+import useFilterStore from './FilterStore';
 
 const TOKEN_KEY = 'token';
 const USER = 'user';
 
-export const useAuthStore = defineStore('authStore', () => {
+const useAuthStore = defineStore('authStore', () => {
   const token = ref(localStorage.getItem(TOKEN_KEY));
   const user = ref(localStorage.getItem(USER));
   const errAuth = ref('');
@@ -88,3 +88,5 @@ export const useAuthStore = defineStore('authStore', () => {
     clearErrAuth,
   };
 });
+
+export default useAuthStore;

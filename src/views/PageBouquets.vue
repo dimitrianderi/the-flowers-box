@@ -78,8 +78,8 @@
 import {
   computed, onMounted, reactive, ref,
 } from 'vue';
-import { useFilterStore } from '@/stores/FilterStore';
-import { useOrderStore } from '@/stores/OrderStore.js';
+import useFilterStore from '@/stores/FilterStore';
+import useOrderStore from '@/stores/OrderStore.js';
 import { types, authors } from '@/config/data/flowers.js';
 import AppCollection from '@/components/ui/AppCollection.vue';
 import AppLoader from '@/components/ui/AppLoader.vue';

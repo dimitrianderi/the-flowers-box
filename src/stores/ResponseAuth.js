@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { computed, ref, watch } from 'vue';
 
-export const useResponseStore = defineStore('responseStore', () => {
+const useResponseStore = defineStore('responseStore', () => {
   const response = ref('');
 
   const getResponse = computed(() => response.value);
@@ -21,3 +21,5 @@ export const useResponseStore = defineStore('responseStore', () => {
     updateResponse,
   };
 });
+
+export default useResponseStore;

@@ -144,8 +144,8 @@ import {
   types,
 } from '@/config/data/flowers';
 import AppInfo from '@/components/ui/AppInfo.vue';
-import { useBuilderStore } from '@/stores/BuilderStore';
-import { useResponseStore } from '@/stores/ResponseAuth';
+import useBuilderStore from '@/stores/BuilderStore';
+import useResponseStore from '@/stores/ResponseAuth';
 
 export default {
   components: {

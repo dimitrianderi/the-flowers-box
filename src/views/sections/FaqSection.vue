@@ -1,14 +1,14 @@
 <template>
   <section class="faq-section container">
     <h2 class="faq-section__description">
-      {{ questions[topic]['title'] }}
+      {{ faq[topic]['title'] }}
     </h2>
     <div class="faq-section__items">
       <app-accordion
-        v-for="(question, idx) in questions[topic].items"
+        v-for="(question, idx) in faq[topic].items"
         :id="String(idx)"
         :key="question"
-        :idx="(questions[topic].idx === true) ? idx : null"
+        :idx="(faq[topic].idx === true) ? idx : null"
         :title="question.title"
       >
         <article class="faq-section__content">
@@ -22,7 +22,7 @@
 <script>
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import { faq as questions } from '@/config/faq';
+import faq from '@/config/faq';
 import AppAccordion from '@/components/ui/AppAccordion.vue';
 
 export default {
@@ -34,7 +34,7 @@ export default {
 
     return {
       topic,
-      questions,
+      faq,
     };
   },
 };

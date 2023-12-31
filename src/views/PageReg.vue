@@ -42,7 +42,7 @@
 <script>
 import AppForm from '@/components/ui/AppForm.vue';
 import AppControl from '@/components/ui/AppControl.vue';
-import { useReg } from '@/use/useReg.js';
+import useReg from '@/use/useReg.js';
 
 export default {
   components: { AppForm, AppControl },

@@ -100,7 +100,7 @@
 
 <script>
 import { computed, ref } from 'vue';
-import { useBuilderStore } from '@/stores/BuilderStore';
+import useBuilderStore from '@/stores/BuilderStore';
 import AppLinkIcon from '@/components/ui/AppLinkIcon.vue';
 
 export default {

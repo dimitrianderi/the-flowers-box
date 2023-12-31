@@ -17,8 +17,8 @@
 
 <script>
 import { onMounted } from 'vue';
-import { achievements } from '@/config/the-achievements.js';
-import { startAnime } from '@/libraries/anime.js';
+import achievements from '@/config/the-achievements.js';
+import startAnime from '@/libraries/anime.js';
 
 export default {
   setup() {

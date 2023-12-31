@@ -2,10 +2,10 @@ import { defineStore } from 'pinia';
 import {
   computed, reactive, ref, watch,
 } from 'vue';
-import { useOrderStore } from '@/stores/OrderStore';
-import { useAuthStore } from '@/stores/AuthStore';
+import useOrderStore from '@/stores/OrderStore';
+import useAuthStore from '@/stores/AuthStore';
 
-export const useBuilderStore = defineStore('builderStore', () => {
+const useBuilderStore = defineStore('builderStore', () => {
   const authStore = useAuthStore();
   const orderStore = useOrderStore();
 
@@ -125,3 +125,5 @@ export const useBuilderStore = defineStore('builderStore', () => {
     cleanBouquet,
   };
 });
+
+export default useBuilderStore;

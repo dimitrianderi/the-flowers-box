@@ -3,4 +3,6 @@ const ERROR_CODES = {
   EMAIL_EXISTS: 'the user already exists',
 };
 
-export const errors = (code) => ERROR_CODES[code] || 'request error';
+const errors = (code) => ERROR_CODES[code] || 'request error';
+
+export default errors;

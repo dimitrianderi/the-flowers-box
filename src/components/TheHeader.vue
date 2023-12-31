@@ -56,9 +56,9 @@
 <script>
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { useFilterStore } from '@/stores/FilterStore';
-import { slides } from '@/config/the-header.js';
-import { getImageUrl } from '@/utils/getImageUrl.js';
+import useFilterStore from '@/stores/FilterStore';
+import slides from '@/config/the-header.js';
+import getImageUrl from '@/utils/getImageUrl.js';
 
 export default {
   setup() {

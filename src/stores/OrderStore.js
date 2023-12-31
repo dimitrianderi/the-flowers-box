@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
 import axios from '@/axios/request';
-import { useAuthStore } from '@/stores/AuthStore';
-import { useResponseStore } from '@/stores/ResponseAuth';
+import useAuthStore from '@/stores/AuthStore';
+import useResponseStore from '@/stores/ResponseAuth';
 
-export const useOrderStore = defineStore('orderStore', () => {
+const useOrderStore = defineStore('orderStore', () => {
   const authStore = useAuthStore();
   const responseStore = useResponseStore();
   const bouquets = ref([]);
@@ -48,3 +48,5 @@ export const useOrderStore = defineStore('orderStore', () => {
     getBouquets,
   };
 });
+
+export default useOrderStore;

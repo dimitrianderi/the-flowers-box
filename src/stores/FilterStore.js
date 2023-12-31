@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia';
 import { computed, ref, watch } from 'vue';
-import { useOrderStore } from '@/stores//OrderStore';
-import { useAuthStore } from '@/stores/AuthStore';
+import useOrderStore from '@/stores//OrderStore';
+import useAuthStore from '@/stores/AuthStore';
 
 const itemsPerPage = 4;
 
-export const useFilterStore = defineStore('filterStore', () => {
+const useFilterStore = defineStore('filterStore', () => {
   const orderStore = useOrderStore();
   const authStore = useAuthStore();
 
@@ -139,3 +139,5 @@ export const useFilterStore = defineStore('filterStore', () => {
     changeSearch,
   };
 });
+
+export default useFilterStore;

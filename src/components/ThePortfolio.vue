@@ -19,8 +19,8 @@
 
 <script>
 import { useRouter } from 'vue-router';
-import { cards } from '@/config/the-portfolio.js';
-import { useFilterStore } from '@/stores/FilterStore';
+import cards from '@/config/the-portfolio.js';
+import useFilterStore from '@/stores/FilterStore';
 import AppSections from '@/components/ui/AppSections.vue';
 
 export default {
