@@ -79,7 +79,7 @@
   padding: 15px;
   padding-bottom: 25px;
   font-family: $calama, Arial, Helvetica, sans-serif;
-  background-color: rgb($black, 0.1);
+  background-color: rgba($black, 0.1);
   backdrop-filter: blur(10px);
   text-align: center;
   line-height: $height;
@@ -88,7 +88,7 @@
   cursor: pointer;
 
   &:hover {
-    background-color: rgb(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     text-shadow: 2px 2px 2px $shadow;
   }
 }

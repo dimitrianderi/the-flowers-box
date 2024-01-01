@@ -82,7 +82,7 @@
       border: 1px solid transparent;
       backdrop-filter: blur(0);
       color: $pink;
-      background-color: rgb($black, 0.4);
+      background-color: rgba($black, 0.4);
       pointer-events: none;
     }
 
@@ -90,7 +90,7 @@
       border: 1px solid transparent;
       backdrop-filter: blur(0);
       color: $white;
-      background-color: rgb($darkgreen, 0.4);
+      background-color: rgba($darkgreen, 0.4);
       pointer-events: none;
     }
   }
