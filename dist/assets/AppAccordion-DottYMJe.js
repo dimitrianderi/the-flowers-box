@@ -1,5 +1,0 @@
-import {
-  _ as l, r as d, c as a, d as n, e as o, t as i, h as r, v as _, l as u,
-} from './index-OiT2zUcm.js';
-
-const x = { props: { idx: { type: Number, default: null }, id: String, title: String }, setup(t) { const e = d(null); return t.idx !== null && (e.value = +t.idx + 1, e.value = +e.value > 9 ? e.value : `0${e.value}`), { idx: e }; } }; const f = { class: 'accordion' }; const h = ['id']; const p = ['for']; const v = { key: 0, class: 'accordion__label-idx' }; const b = { class: 'accordion__label-title' }; const m = { class: 'accordion__content' }; const k = { class: 'accordion__content-contain' }; function y(t, e, c, s, A, N) { return a(), n('div', f, [o('input', { type: 'checkbox', class: 'accordion__checkbox', id: c.id }, null, 8, h), o('label', { class: 'accordion__label', for: c.id }, [s.idx !== null ? (a(), n('span', v, i(s.idx), 1)) : r('', !0), o('span', b, i(c.title), 1)], 8, p), o('div', m, [o('div', k, [_(t.$slots, 'default', {}, () => [u('Accordion')])])])]); } const g = l(x, [['render', y]]); export { g as A };
