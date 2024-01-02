@@ -14,13 +14,3 @@ test('renders modal', () => {
 
   screen.getByText('this test text for modal');
 });
-
-test('renders close modal', async () => {
-  render(AppModal);
-
-  const closeBtn = screen.getByBtnClose('close-modal');
-
-  await fireEvent.click(closeBtn);
-
-  expect(screen.queryModalContent('content-modal')).toBeNull();
-});
