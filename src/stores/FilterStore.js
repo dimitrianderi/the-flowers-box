@@ -27,7 +27,7 @@ const useFilterStore = defineStore('filterStore', () => {
     if (author === 'admin') {
       return 'Design';
     }
-    if (author === user.value.split('@')[0]) {
+    if (author === user.value) {
       return 'My';
     }
     return 'Custom';

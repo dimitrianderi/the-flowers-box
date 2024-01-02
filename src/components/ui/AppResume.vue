@@ -67,16 +67,42 @@
         <strong>{{ bouquet.author }}</strong>
       </div>
     </div>
+
+    <button
+      v-if="user === 'admin' || user === bouquet.author"
+      class="info-btn"
+      :disabled="isSubmitting"
+      @click="$emit('delBouquet', bouquet.id)"
+    >
+      delete
+    </button>
   </div>
 </template>
 
 <script>
+import { computed } from 'vue';
+import useAuthStore from '@/stores/AuthStore';
+
 export default {
   props: {
     bouquet: {
       type: Object,
       default: () => {},
     },
+    isSubmitting: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  emits: ['delBouquet'],
+
+  setup() {
+    const authStore = useAuthStore();
+    const user = computed(() => authStore.getUser);
+
+    return {
+      user,
+    };
   },
 };
 </script>
@@ -109,6 +135,15 @@ export default {
   &__title {
     display: flex;
     gap: 40px;
+  }
+
+  &-btn {
+    margin-top: 20px;
+    background-color: rgba(red, 0.2);
+
+    &:hover {
+      background-color: rgba(red, 0.4);
+    }
   }
 }
 

@@ -1,5 +1,11 @@
 <template>
   <section class="container bouquets">
+    <div class="response">
+      <app-alert
+        v-if="response.length"
+        :text="response"
+      />
+    </div>
     <h2 class="bouquets__title">
       Bouquets
     </h2>
@@ -69,7 +75,11 @@
       v-if="isModal"
       @offModal="offModal()"
     >
-      <app-resume :bouquet="bouquetData" />
+      <app-resume
+        :bouquet="bouquetData"
+        :is-submitting="isSubmitting"
+        @delBouquet="deleteBouquet"
+      />
     </app-modal>
   </section>
 </template>
@@ -86,6 +96,8 @@ import AppLoader from '@/components/ui/AppLoader.vue';
 import AppPagination from '@/components/ui/AppPagination.vue';
 import AppModal from '@/components/ui/AppModal.vue';
 import AppResume from '@/components/ui/AppResume.vue';
+import useResponseStore from '@/stores/ResponseAuth';
+import AppAlert from '@/components/ui/AppAlert.vue';
 
 export default {
   components: {
@@ -94,16 +106,21 @@ export default {
     AppPagination,
     AppModal,
     AppResume,
+    AppAlert,
   },
 
   setup() {
     const orderStore = useOrderStore();
     const filterStore = useFilterStore();
     const bouquets = computed(() => filterStore.getBouquets);
+    const isSubmitting = ref(false);
     const isLoad = ref(false);
     const isModal = ref(false);
+    const responseStore = useResponseStore();
 
     const bouquetData = reactive({});
+
+    const response = computed(() => responseStore.getResponse);
 
     const toggleView = (view) => {
       if (filterStore.getViews.includes(view)) {
@@ -144,6 +161,16 @@ export default {
       Object.assign(bouquetData, bouquet);
     };
 
+    const deleteBouquet = async (id) => {
+      try {
+        isSubmitting.value = true;
+        await orderStore.deleteBouquet(id);
+        offModal();
+      } catch (e) { /* empty */ } finally {
+        isSubmitting.value = false;
+      }
+    };
+
     onMounted(async () => {
       isLoad.value = true;
       await orderStore.loadBouquets();
@@ -160,11 +187,14 @@ export default {
       toggleAuthor,
       getMaxFlowers,
       changeSearch,
+      deleteBouquet,
       onModal,
       offModal,
       searchValue,
       isModal,
       bouquetData,
+      isSubmitting,
+      response,
     };
   },
 };

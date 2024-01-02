@@ -40,7 +40,7 @@ export default {
     const authStore = useAuthStore();
     const routes = ref([]);
 
-    const user = authStore.getUser ? authStore.getUser.split('@')[0] : '';
+    const user = authStore.getUser ? authStore.getUser : '';
 
     const getRoutes = () => {
       routes.value = route.matched;

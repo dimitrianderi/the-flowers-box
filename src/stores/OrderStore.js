@@ -16,12 +16,31 @@ const useOrderStore = defineStore('orderStore', () => {
 
   const addBouquet = (bouquet) => bouquets.value.push(bouquet);
 
+  const clearBouquet = (id) => {
+    const idx = bouquets.value.findIndex((bouquet) => bouquet.id === id);
+    if (idx !== -1) {
+      bouquets.value.splice(idx, 1);
+    }
+  };
+
   const createBouquet = async (payload) => {
     const token = authStore.getToken;
     try {
       const { data } = await axios.post(`/flowers.json?auth=${token}`, payload);
       addBouquet({ ...payload, id: data.name });
       responseStore.updateResponse('Bouquet is creating!');
+    } catch (err) {
+      responseStore.updateResponse('Request error');
+      throw new Error();
+    }
+  };
+
+  const deleteBouquet = async (id) => {
+    const token = authStore.getToken;
+    try {
+      await axios.delete(`/flowers/${id}.json?auth=${token}`);
+      clearBouquet(id);
+      responseStore.updateResponse('Bouquet is deleted!');
     } catch (err) {
       responseStore.updateResponse('Request error');
       throw new Error();
@@ -45,6 +64,7 @@ const useOrderStore = defineStore('orderStore', () => {
   return {
     createBouquet,
     loadBouquets,
+    deleteBouquet,
     getBouquets,
   };
 });

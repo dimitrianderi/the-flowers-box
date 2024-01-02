@@ -17,7 +17,7 @@ const useAuthStore = defineStore('authStore', () => {
   const router = useRouter();
   const builderStore = useBuilderStore();
   const getToken = computed(() => token.value);
-  const getUser = computed(() => user.value);
+  const getUser = computed(() => user.value.split('@')[0]);
   const isAuth = computed(() => !!token.value);
   const getErrAuth = computed(() => errAuth.value);
   const filterStore = useFilterStore();
