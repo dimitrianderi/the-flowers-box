@@ -10,6 +10,7 @@
     <button
       type="submit"
       class="form__btn"
+      data-testId="btn"
       :disabled="isSubmitting"
       @click="clearErrAuth"
     >

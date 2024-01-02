@@ -3,11 +3,13 @@
     class="link"
     :target="blank ? '_blank' : ''"
     :href="href"
+    data-testId="link-test"
   >
     <font-awesome-icon
       class="link-icon"
       :icon="iconClass"
       :class="{ dark: isDark, disabled: disabled }"
+      data-testId="icon-test"
     /></a>
 </template>
 

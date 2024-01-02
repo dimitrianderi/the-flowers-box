@@ -4,6 +4,7 @@
       <font-awesome-icon
         class="alert-icon"
         icon="fa-regular fa-bell"
+        data-testId="alert-icon"
       />
       <span class="alert-text">{{ text }}</span>
     </div>
