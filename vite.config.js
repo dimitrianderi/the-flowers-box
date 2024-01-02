@@ -4,7 +4,6 @@ import vue from '@vitejs/plugin-vue'
 import eslintPlugin from 'vite-plugin-eslint';
 
 export default defineConfig({
-  base: '/the-flowers-box/',
   plugins: [vue(), eslintPlugin()],
   resolve: {
     alias: [
