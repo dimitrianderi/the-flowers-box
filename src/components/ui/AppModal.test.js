@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/vue';
+import { render, screen } from '@testing-library/vue';
 import AppModal from './AppModal.vue';
 
 const textModal = 'this test text for modal';
