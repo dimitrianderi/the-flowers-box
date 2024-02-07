@@ -2,12 +2,10 @@
 https://the-flowers-box.store/
 
 # СТЕК ТЕХНОЛОГИЙ
-# ФРЕЙМВОРК
+## ФРЕЙМВОРК
 Vue 3 (Composition API)
-
 ## СБОРЩИК
 VITE
-
 ## БИБЛИОТЕКИ
 - vue-router
 - pinia
