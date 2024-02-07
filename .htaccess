@@ -1,3 +1,0 @@
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www.the-flowers-box.store$ [NC]
-RewriteRule ^(.*)$ http://the-flowers-box.store/$1 [R=301,L]
